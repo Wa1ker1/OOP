@@ -20,10 +20,11 @@ jobs:
       
       - name: Debug info
         run: |
-          echo "Pull request title is: '${{ github.event.pull_request.title }}'"
-          echo "Current working directory: $(pwd)"
-          echo "Repository tree:"
+          echo ">>> Pull request title is: '${{ github.event.pull_request.title }}'"
+          echo ">>> Current working directory: $(pwd)"
+          echo ">>> Repository tree:"
           ls -R .
+        working-directory: .
       
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
