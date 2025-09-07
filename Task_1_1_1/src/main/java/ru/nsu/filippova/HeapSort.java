@@ -1,8 +1,17 @@
 package ru.nsu.filippova;
 
+/**
+Heapsort class.
+ */
 public class HeapSort {
+
+    /**
+     * sort method.
+     */
     public static void sort(int[] arr) {
-        if (arr == null) throw new IllegalArgumentException("array is null");
+        if (arr == null) {
+            throw new IllegalArgumentException("array is null");
+        }
         int n = arr.length;
 
         // строим кучу
@@ -24,8 +33,12 @@ public class HeapSort {
         int l = 2 * i + 1;
         int r = 2 * i + 2;
 
-        if (l < n && arr[l] > arr[largest]) largest = l;
-        if (r < n && arr[r] > arr[largest]) largest = r;
+        if (l < n && arr[l] > arr[largest]) {
+            largest = l;
+        }
+        if (r < n && arr[r] > arr[largest]) {
+            largest = r;
+        }
 
         if (largest != i) {
             int swap = arr[i];
