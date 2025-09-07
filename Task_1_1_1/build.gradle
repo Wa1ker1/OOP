@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id 'checkstyle'
 }
 
 group = 'ru.nsu.filippova'
@@ -22,5 +23,17 @@ test {
 jacocoTestReport {
     reports {
         xml.required = true
+    }
+}
+
+checkstyle {
+    toolVersion = '10.12.1'
+    configFile = file('checkstyle/google_checks.xml')
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.required = true
+        html.required = true
     }
 }
