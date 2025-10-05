@@ -53,4 +53,30 @@ public class ExpressionTest {
         assertEquals(5, x.eval("abc=5"));
         assertThrows(IllegalArgumentException.class, () -> x.eval("x=10"));
     }
+
+    @Test
+    public void testAddAndSubSimplifyNumbers() {
+        Expression add = new Add(new Number(5), new Number(3));
+        Expression sub = new Sub(new Number(10), new Number(4));
+        assertEquals("8", add.simplify().print());
+        assertEquals("6", sub.simplify().print());
+    }
+
+    @Test
+    public void testMulSimplifyZeroAndOne() {
+        Expression zeroMul = new Mul(new Number(0), new Variable("x"));
+        Expression oneMul = new Mul(new Number(1), new Variable("x"));
+        assertEquals("0", zeroMul.simplify().print());
+        assertEquals("x", oneMul.simplify().print());
+    }
+
+    @Test
+    public void testDivSimplifyAndDerivative() {
+        Expression div = new Div(new Number(8), new Number(2));
+        assertEquals("4", div.simplify().print());
+        Expression e = new Div(new Variable("x"), new Variable("y"));
+        Expression de = e.derivative("x");
+        assertEquals("(((1*y)-(x*0))/(y*y))", de.print());
+    }
+
 }
