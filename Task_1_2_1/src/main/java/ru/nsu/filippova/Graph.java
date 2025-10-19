@@ -115,11 +115,11 @@ public interface Graph<V, E> {
      * что тип вершины V - это String, а тип веса E - это Double.
      * <p>
      * Формат:
-     * <N - количество вершин>
+     * &lt;N - количество вершин&gt;
      * vertexName1
      * vertexName2
      * ...
-     * <M - количество ребер>
+     * &lt;M - количество ребер&gt;
      * sourceName1 destinationName1 weight1
      * sourceName2 destinationName2 weight2
      * ...
