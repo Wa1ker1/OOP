@@ -2,6 +2,9 @@ package ru.nsu.filippova;
 
 import java.util.Map;
 
+/**
+ * Представляет операцию сложения двух подвыражений.
+ */
 public class Add extends BinaryOperation {
     /**
      * Создает операцию сложения.

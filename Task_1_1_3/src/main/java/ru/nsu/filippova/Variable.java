@@ -2,6 +2,9 @@ package ru.nsu.filippova;
 
 import java.util.Map;
 
+/**
+ * Представляет переменную в арифметическом выражении.
+ */
 public class Variable extends Expression {
     private final String name;
 
@@ -37,8 +40,9 @@ public class Variable extends Expression {
      */
     @Override
     public int eval(Map<String, Integer> variables) {
-        if (!variables.containsKey(name))
+        if (!variables.containsKey(name)) {
             throw new IllegalArgumentException("Не задано значение переменной " + name);
+        }
         return variables.get(name);
     }
 

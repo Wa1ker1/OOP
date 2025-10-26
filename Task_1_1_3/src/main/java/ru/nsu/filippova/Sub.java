@@ -2,6 +2,9 @@ package ru.nsu.filippova;
 
 import java.util.Map;
 
+/**
+ * Представляет операцию вычитания одного выражения из другого.
+ */
 public class Sub extends BinaryOperation {
     /**
      * Создает операцию вычитания.

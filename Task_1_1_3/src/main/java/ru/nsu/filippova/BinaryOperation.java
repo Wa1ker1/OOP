@@ -4,7 +4,8 @@ package ru.nsu.filippova;
  * Базовый класс для бинарных операций над выражениями.
  */
 public abstract class BinaryOperation extends Expression {
-    protected final Expression left, right;
+    protected final Expression left;
+    protected final Expression right;
 
     /**
      * Создает бинарную операцию с указанными операндами.

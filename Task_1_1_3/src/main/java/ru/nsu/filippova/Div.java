@@ -2,6 +2,9 @@ package ru.nsu.filippova;
 
 import java.util.Map;
 
+/**
+ * Представляет операцию деления одного выражения на другое.
+ */
 public class Div extends BinaryOperation {
     /**
      * Создает операцию деления.

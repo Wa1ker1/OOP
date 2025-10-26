@@ -23,13 +23,7 @@ public abstract class Expression {
      */
     public abstract Expression derivative(String variable);
 
-    /**
-     * Вычисляет значение выражения при заданных значениях переменных.
-     *
-     * @param variables отображение имен переменных в их значения
-     * @return целочисленный результат вычисления
-     */
-    public abstract int eval(Map<String, Integer> variables);
+
 
     /**
      * Разбирает строку, используя {@link Parser}, и возвращает построенное выражение.
@@ -42,11 +36,20 @@ public abstract class Expression {
     }
 
     /**
+     * Вычисляет значение выражения при заданных значениях переменных.
+     *
+     * @param variables отображение имен переменных в их значения
+     * @return целочисленный результат вычисления
+     */
+    public abstract int eval(Map<String, Integer> variables);
+
+    /**
      * Выполняет вычисление выражения, разбирая список присваиваний вида {@code x = 10; y = 2}.
      *
      * @param assignment строковый список присваиваний
      * @return значение выражения
      */
+
     public int eval(String assignment) {
         String[] parts = assignment.split(";");
         HashMap<String, Integer> map = new HashMap<>();

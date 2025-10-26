@@ -2,6 +2,9 @@ package ru.nsu.filippova;
 
 import java.util.Map;
 
+/**
+ * Представляет операцию умножения двух выражений.
+ */
 public class Mul extends BinaryOperation {
     /**
      * Создает операцию умножения.
@@ -51,13 +54,21 @@ public class Mul extends BinaryOperation {
         }
         if (l instanceof Number) {
             int val = ((Number) l).getValue();
-            if (val == 0) return new Number(0);
-            if (val == 1) return r;
+            if (val == 0) {
+                return new Number(0);
+            }
+            if (val == 1) {
+                return r;
+            }
         }
         if (r instanceof Number) {
             int val = ((Number) r).getValue();
-            if (val == 0) return new Number(0);
-            if (val == 1) return l;
+            if (val == 0) {
+                return new Number(0);
+            }
+            if (val == 1) {
+                return l;
+            }
         }
         return new Mul(l, r);
     }
