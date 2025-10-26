@@ -82,6 +82,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">BinaryOperation</span>
 <span class="extends-implements">extends <a href="Expression.html" title="class in ru.nsu.filippova">Expression</a></span></div>
+<div class="block">Базовый класс для бинарных операций над выражениями.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -113,7 +114,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ru.nsu.filippova.Expression,ru.nsu.filippova.Expression)" class="member-name-link">BinaryOperation</a><wbr>(<a href="Expression.html" title="class in ru.nsu.filippova">Expression</a>&nbsp;left,
  <a href="Expression.html" title="class in ru.nsu.filippova">Expression</a>&nbsp;right)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Создает бинарную операцию с указанными операндами.</div>
+</div>
 </div>
 </section>
 </li>
@@ -130,10 +133,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#print()" class="member-name-link">print</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Формирует строковое представление текущего выражения.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#symbol()" class="member-name-link">symbol</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Возвращает символ, который используется в текстовом представлении операции.</div>
+</div>
 </div>
 </div>
 </div>
@@ -179,6 +186,12 @@ loadScripts(document, 'script');</script>
 <h3>BinaryOperation</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BinaryOperation</span><wbr><span class="parameters">(<a href="Expression.html" title="class in ru.nsu.filippova">Expression</a>&nbsp;left,
  <a href="Expression.html" title="class in ru.nsu.filippova">Expression</a>&nbsp;right)</span></div>
+<div class="block">Создает бинарную операцию с указанными операндами.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>left</code> - левый операнд</dd>
+<dd><code>right</code> - правый операнд</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -193,15 +206,23 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="symbol()">
 <h3>symbol</h3>
 <div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">symbol</span>()</div>
+<div class="block">Возвращает символ, который используется в текстовом представлении операции.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>символьное представление операции</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="print()">
 <h3>print</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">print</span>()</div>
+<div class="block">Формирует строковое представление текущего выражения.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Expression.html#print()">print</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in ru.nsu.filippova">Expression</a></code></dd>
+<dt>Returns:</dt>
+<dd>выражение в виде строки</dd>
 </dl>
 </section>
 </li>
