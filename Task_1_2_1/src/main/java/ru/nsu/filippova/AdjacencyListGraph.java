@@ -12,13 +12,10 @@ import java.util.Set;
  * Реализация графа с использованием списка смежности.
  * Основа - Map, где ключ - вершина, а значение -
  * другая Map (соседи), где ключ - сосед, а значение - вес ребра.
- *
- * @param <V> Тип вершин
- * @param <E> Тип веса ребер
  */
-public class AdjacencyListGraph<V, E> extends AbstractGraph<V, E> {
+public class AdjacencyListGraph<V> extends AbstractGraph<V> {
 
-    private final Map<V, Map<V, E>> adjList;
+    private final Map<V, Map<V, Integer>> adjList;
     private int edgeCount;
 
     /**
@@ -47,7 +44,7 @@ public class AdjacencyListGraph<V, E> extends AbstractGraph<V, E> {
         edgeCount -= adjList.get(vertex).size();
         adjList.remove(vertex);
 
-        for (Map<V, E> neighbors : adjList.values()) {
+        for (Map<V, Integer> neighbors : adjList.values()) {
             if (neighbors.remove(vertex) != null) {
                 edgeCount--;
             }
@@ -56,7 +53,7 @@ public class AdjacencyListGraph<V, E> extends AbstractGraph<V, E> {
     }
 
     @Override
-    public boolean addEdge(V source, V destination, E weight) {
+    public boolean addEdge(V source, V destination, Integer weight) {
         if (!containsVertex(source) || !containsVertex(destination)) {
             throw new IllegalArgumentException("Vertex not found in graph.");
         }
@@ -74,7 +71,7 @@ public class AdjacencyListGraph<V, E> extends AbstractGraph<V, E> {
         if (!containsVertex(source) || !containsVertex(destination)) {
             return false;
         }
-        Map<V, E> neighbors = adjList.get(source);
+        Map<V, Integer> neighbors = adjList.get(source);
         if (neighbors != null && neighbors.remove(destination) != null) {
             edgeCount--;
             return true;
@@ -83,7 +80,7 @@ public class AdjacencyListGraph<V, E> extends AbstractGraph<V, E> {
     }
 
     @Override
-    public E getEdgeWeight(V source, V destination) {
+    public Integer getEdgeWeight(V source, V destination) {
         if (!containsVertex(source)) {
             return null;
         }
@@ -124,7 +121,7 @@ public class AdjacencyListGraph<V, E> extends AbstractGraph<V, E> {
     }
 
     @Override
-    public void readFromFile(String filePath) throws IOException, ClassCastException {
+    public void readFromFile(String filePath) throws IOException {
         this.adjList.clear();
         this.edgeCount = 0;
 
@@ -146,7 +143,7 @@ public class AdjacencyListGraph<V, E> extends AbstractGraph<V, E> {
                 }
                 V source = (V) parts[0];
                 V dest = (V) parts[1];
-                E weight = (E) Double.valueOf(parts[2]);
+                Integer weight = Integer.valueOf(parts[2]);
 
                 if (!this.containsVertex(source) || !this.containsVertex(dest)) {
                     throw new IllegalStateException("Edge refers to non-existent vertex: " + line);

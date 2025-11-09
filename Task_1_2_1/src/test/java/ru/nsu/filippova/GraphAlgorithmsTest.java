@@ -17,10 +17,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GraphAlgorithmsTest {
 
-    private Graph<String, Double> graph;
+    private Graph<String> graph;
 
-    static Stream<Function<Graph<String, Double>, List<String>>> sortMethods() {
+    static Stream<Function<Graph<String>, List<String>>> sortMethods() {
         return Stream.of(
+                Graph::sort,
                 GraphAlgorithms::topologicalSort,
                 GraphAlgorithms::topologicalSortKahn
         );
@@ -35,7 +36,7 @@ class GraphAlgorithmsTest {
      * Вспомогательный метод для проверки корректности топологической сортировки.
      * Проверяет, что для любого ребра (u -> v), u идет раньше v в списке.
      */
-    private void assertTopologicalOrder(List<String> sortedList, Graph<String, Double> g) {
+    private void assertTopologicalOrder(List<String> sortedList, Graph<String> g) {
         Map<String, Integer> indices = IntStream.range(0, sortedList.size())
                 .boxed()
                 .collect(Collectors.toMap(sortedList::get, i -> i));
@@ -60,14 +61,14 @@ class GraphAlgorithmsTest {
     @ParameterizedTest
     @MethodSource("sortMethods")
     @DisplayName("Простая линейная сортировка")
-    void testTopologicalSort_Linear(Function<Graph<String, Double>, List<String>> sortAlgorithm) {
+    void testTopologicalSort_Linear(Function<Graph<String>, List<String>> sortAlgorithm) {
         graph.addVertex("A");
         graph.addVertex("B");
         graph.addVertex("C");
         graph.addVertex("D");
-        graph.addEdge("A", "B", 1.0);
-        graph.addEdge("B", "C", 1.0);
-        graph.addEdge("C", "D", 1.0);
+        graph.addEdge("A", "B", 1);
+        graph.addEdge("B", "C", 1);
+        graph.addEdge("C", "D", 1);
 
         List<String> sorted = sortAlgorithm.apply(graph);
         List<String> expected = List.of("A", "B", "C", "D");
@@ -77,7 +78,7 @@ class GraphAlgorithmsTest {
     @ParameterizedTest
     @MethodSource("sortMethods")
     @DisplayName("Сложный DAG (ациклический граф)")
-    void testTopologicalSort_ComplexDAG(Function<Graph<String, Double>, List<String>> sortAlgorithm) {
+    void testTopologicalSort_ComplexDAG(Function<Graph<String>, List<String>> sortAlgorithm) {
         graph.addVertex("Носки");
         graph.addVertex("Обувь");
         graph.addVertex("Брюки");
@@ -86,13 +87,13 @@ class GraphAlgorithmsTest {
         graph.addVertex("Галстук");
         graph.addVertex("Пиджак");
 
-        graph.addEdge("Носки", "Обувь", 1.0);
-        graph.addEdge("Брюки", "Обувь", 1.0);
-        graph.addEdge("Брюки", "Ремень", 1.0);
-        graph.addEdge("Рубашка", "Ремень", 1.0);
-        graph.addEdge("Рубашка", "Галстук", 1.0);
-        graph.addEdge("Ремень", "Пиджак", 1.0);
-        graph.addEdge("Галстук", "Пиджак", 1.0);
+        graph.addEdge("Носки", "Обувь", 1);
+        graph.addEdge("Брюки", "Обувь", 1);
+        graph.addEdge("Брюки", "Ремень", 1);
+        graph.addEdge("Рубашка", "Ремень", 1);
+        graph.addEdge("Рубашка", "Галстук", 1);
+        graph.addEdge("Ремень", "Пиджак", 1);
+        graph.addEdge("Галстук", "Пиджак", 1);
 
         List<String> sorted = sortAlgorithm.apply(graph);
         assertTopologicalOrder(sorted, graph);
@@ -101,13 +102,13 @@ class GraphAlgorithmsTest {
     @ParameterizedTest
     @MethodSource("sortMethods")
     @DisplayName("Несвязный граф")
-    void testTopologicalSort_Disconnected(Function<Graph<String, Double>, List<String>> sortAlgorithm) {
+    void testTopologicalSort_Disconnected(Function<Graph<String>, List<String>> sortAlgorithm) {
         graph.addVertex("A");
         graph.addVertex("B");
         graph.addVertex("C");
         graph.addVertex("D");
-        graph.addEdge("A", "B", 1.0);
-        graph.addEdge("C", "D", 1.0);
+        graph.addEdge("A", "B", 1);
+        graph.addEdge("C", "D", 1);
 
         List<String> sorted = sortAlgorithm.apply(graph);
         assertTopologicalOrder(sorted, graph);
@@ -116,7 +117,7 @@ class GraphAlgorithmsTest {
     @ParameterizedTest
     @MethodSource("sortMethods")
     @DisplayName("Пустой граф")
-    void testTopologicalSort_Empty(Function<Graph<String, Double>, List<String>> sortAlgorithm) {
+    void testTopologicalSort_Empty(Function<Graph<String>, List<String>> sortAlgorithm) {
         List<String> sorted = sortAlgorithm.apply(graph);
         assertTrue(sorted.isEmpty());
     }
@@ -124,13 +125,13 @@ class GraphAlgorithmsTest {
     @ParameterizedTest
     @MethodSource("sortMethods")
     @DisplayName("Граф с циклом (должен кидать исключение)")
-    void testTopologicalSort_Cycle(Function<Graph<String, Double>, List<String>> sortAlgorithm) {
+    void testTopologicalSort_Cycle(Function<Graph<String>, List<String>> sortAlgorithm) {
         graph.addVertex("A");
         graph.addVertex("B");
         graph.addVertex("C");
-        graph.addEdge("A", "B", 1.0);
-        graph.addEdge("B", "C", 1.0);
-        graph.addEdge("C", "A", 1.0);
+        graph.addEdge("A", "B", 1);
+        graph.addEdge("B", "C", 1);
+        graph.addEdge("C", "A", 1);
 
         assertThrows(IllegalStateException.class, () -> sortAlgorithm.apply(graph));
     }

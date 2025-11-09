@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -19,40 +18,11 @@ import java.util.Set;
  * matrix[i][j] = 0, в остальных случаях.
  * <p>
  * Веса ребер хранятся отдельно, т.к. матрица инцидентности их не содержит.
- *
- * @param <V> Тип вершин
- * @param <E> Тип веса ребер
  */
-public class IncidenceMatrixGraph<V, E> extends AbstractGraph<V, E> {
-    private static class Edge<V, E> {
-        final V source;
-        final V destination;
-        E weight;
-
-        Edge(V source, V destination, E weight) {
-            this.source = source;
-            this.destination = destination;
-            this.weight = weight;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Edge<?, ?> edge = (Edge<?, ?>) o;
-            return Objects.equals(source, edge.source) &&
-                    Objects.equals(destination, edge.destination);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(source, destination);
-        }
-    }
-
+public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     private final Map<V, Integer> vertexToIndex;
     private final List<V> indexToVertex;
-    private final List<Edge<V, E>> edges;
+    private final List<Edge<V>> edges;
     private List<List<Integer>> matrix;
 
     /**
@@ -89,16 +59,16 @@ public class IncidenceMatrixGraph<V, E> extends AbstractGraph<V, E> {
             return false;
         }
 
-        List<Edge<V, E>> toRemove = new ArrayList<>();
-        for (Edge<V, E> edge : edges) {
+        List<Edge<V>> toRemove = new ArrayList<>();
+        for (Edge<V> edge : edges) {
             if (edge.source.equals(vertex) || edge.destination.equals(vertex)) {
                 toRemove.add(edge);
             }
         }
 
-        List<Edge<V, E>> newEdges = new ArrayList<>();
+        List<Edge<V>> newEdges = new ArrayList<>();
         List<List<Integer>> newMatrix = new ArrayList<>();
-        for (Edge<V, E> edge : toRemove) {
+        for (Edge<V> edge : toRemove) {
             removeEdge(edge.source, edge.destination);
         }
 
@@ -113,7 +83,7 @@ public class IncidenceMatrixGraph<V, E> extends AbstractGraph<V, E> {
     }
 
     @Override
-    public boolean addEdge(V source, V destination, E weight) {
+    public boolean addEdge(V source, V destination, Integer weight) {
         Integer srcIdx = vertexToIndex.get(source);
         Integer destIdx = vertexToIndex.get(destination);
 
@@ -124,7 +94,7 @@ public class IncidenceMatrixGraph<V, E> extends AbstractGraph<V, E> {
             throw new IllegalStateException("Edge already exists.");
         }
 
-        Edge<V, E> newEdge = new Edge<>(source, destination, weight);
+        Edge<V> newEdge = new Edge<>(source, destination, weight);
         edges.add(newEdge);
 
         for (int i = 0; i < indexToVertex.size(); i++) {
@@ -144,7 +114,7 @@ public class IncidenceMatrixGraph<V, E> extends AbstractGraph<V, E> {
     public boolean removeEdge(V source, V destination) {
         int edgeIndex = -1;
         for (int i = 0; i < edges.size(); i++) {
-            Edge<V, E> edge = edges.get(i);
+            Edge<V> edge = edges.get(i);
             if (edge.source.equals(source) && edge.destination.equals(destination)) {
                 edgeIndex = i;
                 break;
@@ -163,8 +133,8 @@ public class IncidenceMatrixGraph<V, E> extends AbstractGraph<V, E> {
         return true;
     }
 
-    private Edge<V, E> findEdge(V source, V destination) {
-        for (Edge<V, E> edge : edges) {
+    private Edge<V> findEdge(V source, V destination) {
+        for (Edge<V> edge : edges) {
             if (edge.source.equals(source) && edge.destination.equals(destination)) {
                 return edge;
             }
@@ -174,8 +144,8 @@ public class IncidenceMatrixGraph<V, E> extends AbstractGraph<V, E> {
 
 
     @Override
-    public E getEdgeWeight(V source, V destination) {
-        Edge<V, E> edge = findEdge(source, destination);
+    public Integer getEdgeWeight(V source, V destination) {
+        Edge<V> edge = findEdge(source, destination);
         return (edge != null) ? edge.weight : null;
     }
 
@@ -200,7 +170,7 @@ public class IncidenceMatrixGraph<V, E> extends AbstractGraph<V, E> {
         List<Integer> row = matrix.get(srcIdx);
         for (int j = 0; j < row.size(); j++) {
             if (row.get(j) == 1) {
-                Edge<V, E> edge = edges.get(j);
+                Edge<V> edge = edges.get(j);
                 neighbors.add(edge.destination);
             }
         }
@@ -223,7 +193,7 @@ public class IncidenceMatrixGraph<V, E> extends AbstractGraph<V, E> {
     }
 
     @Override
-    public void readFromFile(String filePath) throws IOException, ClassCastException {
+    public void readFromFile(String filePath) throws IOException {
         this.matrix.clear();
         this.vertexToIndex.clear();
         this.indexToVertex.clear();
@@ -247,7 +217,7 @@ public class IncidenceMatrixGraph<V, E> extends AbstractGraph<V, E> {
                 }
                 V source = (V) parts[0];
                 V dest = (V) parts[1];
-                E weight = (E) Double.valueOf(parts[2]);
+                Integer weight = Integer.valueOf(parts[2]);
 
                 if (!this.containsVertex(source) || !this.containsVertex(dest)) {
                     throw new IllegalStateException("Edge refers to non-existent vertex: " + line);

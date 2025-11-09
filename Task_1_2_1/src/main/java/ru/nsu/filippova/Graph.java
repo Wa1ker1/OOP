@@ -1,6 +1,7 @@
 package ru.nsu.filippova;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -8,9 +9,8 @@ import java.util.Set;
  * Граф предполагается ОРИЕНТИРОВАННЫМ и ВЗВЕШЕННЫМ.
  *
  * @param <V> Тип данных, хранимых в вершинах.
- * @param <E> Тип данных, представляющий вес ребра (например, Double или Integer).
  */
-public interface Graph<V, E> {
+public interface Graph<V> {
 
     /**
      * Добавляет вершину в граф.
@@ -39,7 +39,7 @@ public interface Graph<V, E> {
      * не найдена в графе.
      * @throws IllegalStateException    если ребро между этими вершинами уже существует.
      */
-    boolean addEdge(V source, V destination, E weight);
+    boolean addEdge(V source, V destination, Integer weight);
 
     /**
      * Удаляет ребро между двумя вершинами.
@@ -57,7 +57,7 @@ public interface Graph<V, E> {
      * @param destination конечная вершина.
      * @return вес ребра, или null, если ребра не существует.
      */
-    E getEdgeWeight(V source, V destination);
+    Integer getEdgeWeight(V source, V destination);
 
     /**
      * Проверяет, содержит ли граф указанную вершину.
@@ -112,7 +112,7 @@ public interface Graph<V, E> {
      * Очищает текущий граф перед загрузкой.
      * <p>
      * ВНИМАНИЕ: Для упрощения, данная реализация предполагает,
-     * что тип вершины V - это String, а тип веса E - это Double.
+     * что тип вершины V - это String, а вес ребра представлен типом Integer.
      * <p>
      * Формат:
      * &lt;N - количество вершин&gt;
@@ -125,9 +125,17 @@ public interface Graph<V, E> {
      * ...
      *
      * @param filePath путь к файлу.
-     * @throws IOException            в случае ошибки чтения файла.
-     * @throws ClassCastException     если типы графа не V=String, E=Double.
-     * @throws IllegalStateException  если формат файла нарушен.
+     * @throws IOException           в случае ошибки чтения файла.
+     * @throws IllegalStateException если формат файла нарушен.
      */
     void readFromFile(String filePath) throws IOException;
+
+    /**
+     * Выполняет топологическую сортировку графа.
+     *
+     * @return {@link List} вершин в порядке топологической сортировки.
+     */
+    default List<V> sort() {
+        return GraphAlgorithms.topologicalSort(this);
+    }
 }

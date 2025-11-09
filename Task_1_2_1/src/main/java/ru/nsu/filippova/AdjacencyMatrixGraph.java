@@ -14,14 +14,11 @@ import java.util.Set;
  * Реализация графа с использованием матрицы смежности.
  * Так как тип вершин V - дженерик, мы используем Map для
  * отображения V -> Integer (индекс) и List для Integer -> V.
- * Сама матрица хранит веса E.
- *
- * @param <V> Тип вершин
- * @param <E> Тип веса ребер
+ * Сама матрица хранит веса Integer.
  */
-public class AdjacencyMatrixGraph<V, E> extends AbstractGraph<V, E> {
+public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
 
-    private List<List<E>> matrix;
+    private List<List<Integer>> matrix;
     private final Map<V, Integer> vertexToIndex;
     private final List<V> indexToVertex;
     private int edgeCount;
@@ -46,11 +43,11 @@ public class AdjacencyMatrixGraph<V, E> extends AbstractGraph<V, E> {
         vertexToIndex.put(vertex, newIndex);
         indexToVertex.add(vertex);
 
-        for (List<E> row : matrix) {
+        for (List<Integer> row : matrix) {
             row.add(null);
         }
 
-        List<E> newRow = new ArrayList<>(indexToVertex.size());
+        List<Integer> newRow = new ArrayList<>(indexToVertex.size());
         for (int i = 0; i < indexToVertex.size(); i++) {
             newRow.add(null);
         }
@@ -77,7 +74,7 @@ public class AdjacencyMatrixGraph<V, E> extends AbstractGraph<V, E> {
         }
 
         matrix.remove(indexToRemove.intValue());
-        for (List<E> row : matrix) {
+        for (List<Integer> row : matrix) {
             row.remove(indexToRemove.intValue());
         }
 
@@ -95,7 +92,7 @@ public class AdjacencyMatrixGraph<V, E> extends AbstractGraph<V, E> {
 
 
     @Override
-    public boolean addEdge(V source, V destination, E weight) {
+    public boolean addEdge(V source, V destination, Integer weight) {
         Integer srcIdx = vertexToIndex.get(source);
         Integer destIdx = vertexToIndex.get(destination);
 
@@ -126,7 +123,7 @@ public class AdjacencyMatrixGraph<V, E> extends AbstractGraph<V, E> {
     }
 
     @Override
-    public E getEdgeWeight(V source, V destination) {
+    public Integer getEdgeWeight(V source, V destination) {
         Integer srcIdx = vertexToIndex.get(source);
         Integer destIdx = vertexToIndex.get(destination);
 
@@ -156,7 +153,7 @@ public class AdjacencyMatrixGraph<V, E> extends AbstractGraph<V, E> {
         }
 
         Set<V> neighbors = new HashSet<>();
-        List<E> row = matrix.get(srcIdx);
+        List<Integer> row = matrix.get(srcIdx);
         for (int j = 0; j < row.size(); j++) {
             if (row.get(j) != null) {
                 neighbors.add(indexToVertex.get(j));
@@ -181,7 +178,7 @@ public class AdjacencyMatrixGraph<V, E> extends AbstractGraph<V, E> {
     }
 
     @Override
-    public void readFromFile(String filePath) throws IOException, ClassCastException {
+    public void readFromFile(String filePath) throws IOException {
         this.matrix.clear();
         this.vertexToIndex.clear();
         this.indexToVertex.clear();
@@ -205,7 +202,7 @@ public class AdjacencyMatrixGraph<V, E> extends AbstractGraph<V, E> {
                 }
                 V source = (V) parts[0];
                 V dest = (V) parts[1];
-                E weight = (E) Double.valueOf(parts[2]);
+                Integer weight = Integer.valueOf(parts[2]);
 
                 if (!this.containsVertex(source) || !this.containsVertex(dest)) {
                     throw new IllegalStateException("Edge refers to non-existent vertex: " + line);

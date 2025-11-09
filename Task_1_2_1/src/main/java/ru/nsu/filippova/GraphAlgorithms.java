@@ -19,11 +19,10 @@ public class GraphAlgorithms {
      *
      * @param graph граф для сортировки.
      * @param <V>   Тип вершин.
-     * @param <E>   Тип веса ребер.
      * @return {@link List} вершин в порядке топологической сортировки.
      * @throws IllegalStateException если в графе обнаружен цикл.
      */
-    public static <V, E> List<V> topologicalSort(Graph<V, E> graph) {
+    public static <V> List<V> topologicalSort(Graph<V> graph) {
         LinkedList<V> sortedList = new LinkedList<>();
         Set<V> visited = new HashSet<>();
         Set<V> recursionStack = new HashSet<>();
@@ -40,9 +39,9 @@ public class GraphAlgorithms {
     /**
      * Вспомогательный рекурсивный метод DFS для топологической сортировки.
      */
-    private static <V, E> void topologicalSortDfs(
+    private static <V> void topologicalSortDfs(
             V vertex,
-            Graph<V, E> graph,
+            Graph<V> graph,
             Set<V> visited,
             Set<V> recursionStack,
             LinkedList<V> sortedList
@@ -68,11 +67,10 @@ public class GraphAlgorithms {
      *
      * @param graph граф для сортировки.
      * @param <V>   Тип вершин.
-     * @param <E>   Тип веса ребер.
      * @return {@link List} вершин в порядке топологической сортировки.
      * @throws IllegalStateException если в графе обнаружен цикл.
      */
-    public static <V, E> List<V> topologicalSortKahn(Graph<V, E> graph) {
+    public static <V> List<V> topologicalSortKahn(Graph<V> graph) {
         Map<V, Integer> inDegree = new HashMap<>();
         for (V v : graph.getVertices()) {
             inDegree.put(v, 0);

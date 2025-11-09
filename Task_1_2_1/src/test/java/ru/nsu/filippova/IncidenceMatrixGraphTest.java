@@ -6,7 +6,7 @@ package ru.nsu.filippova;
  */
 class IncidenceMatrixGraphTest extends AbstractGraphTest {
     @Override
-    protected Graph<String, Double> createGraph() {
+    protected Graph<String> createGraph() {
         return new IncidenceMatrixGraph<>();
     }
 }

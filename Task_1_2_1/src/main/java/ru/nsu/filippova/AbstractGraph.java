@@ -9,9 +9,8 @@ import java.util.Set;
  * основанную на методах интерфейса Graph.
  *
  * @param <V> Тип вершин
- * @param <E> Тип веса ребер
  */
-public abstract class AbstractGraph<V, E> implements Graph<V, E> {
+public abstract class AbstractGraph<V> implements Graph<V> {
 
     /**
      * Сравнивает этот граф с другим объектом на равенство.
@@ -31,7 +30,7 @@ public abstract class AbstractGraph<V, E> implements Graph<V, E> {
         }
 
         @SuppressWarnings("unchecked")
-        Graph<V, E> other = (Graph<V, E>) obj;
+        Graph<V> other = (Graph<V>) obj;
 
         if (this.getVertexCount() != other.getVertexCount()
                 || this.getEdgeCount() != other.getEdgeCount()) {
@@ -95,7 +94,7 @@ public abstract class AbstractGraph<V, E> implements Graph<V, E> {
 
             int count = 0;
             for (V v : neighbors) {
-                E weight = this.getEdgeWeight(u, v);
+                Integer weight = this.getEdgeWeight(u, v);
                 sb.append(v).append(" (").append(weight).append(")");
                 if (++count < neighbors.size()) {
                     sb.append(", ");

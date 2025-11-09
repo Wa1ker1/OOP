@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public abstract class AbstractGraphTest {
 
-    protected Graph<String, Double> graph;
+    protected Graph<String> graph;
 
     /**
      * Этот метод должны реализовать подклассы,
@@ -27,7 +27,7 @@ public abstract class AbstractGraphTest {
      *
      * @return пустой граф.
      */
-    protected abstract Graph<String, Double> createGraph();
+    protected abstract Graph<String> createGraph();
 
     @BeforeEach
     void setUp() {
@@ -52,9 +52,9 @@ public abstract class AbstractGraphTest {
         graph.addVertex("A");
         graph.addVertex("B");
         graph.addVertex("C");
-        graph.addEdge("A", "B", 1.0);
-        graph.addEdge("B", "C", 2.0);
-        graph.addEdge("C", "A", 3.0);
+        graph.addEdge("A", "B", 1);
+        graph.addEdge("B", "C", 2);
+        graph.addEdge("C", "A", 3);
 
         assertEquals(3, graph.getVertexCount());
         assertEquals(3, graph.getEdgeCount());
@@ -78,12 +78,12 @@ public abstract class AbstractGraphTest {
         graph.addVertex("A");
         graph.addVertex("B");
 
-        assertTrue(graph.addEdge("A", "B", 1.5));
+        assertTrue(graph.addEdge("A", "B", 15));
         assertEquals(1, graph.getEdgeCount());
         assertTrue(graph.containsEdge("A", "B"));
         assertFalse(graph.containsEdge("B", "A"));
 
-        assertEquals(1.5, graph.getEdgeWeight("A", "B"));
+        assertEquals(15, graph.getEdgeWeight("A", "B"));
         assertNull(graph.getEdgeWeight("B", "A"));
     }
 
@@ -93,11 +93,11 @@ public abstract class AbstractGraphTest {
         graph.addVertex("A");
         graph.addVertex("B");
 
-        assertThrows(IllegalArgumentException.class, () -> graph.addEdge("A", "Z", 1.0));
-        assertThrows(IllegalArgumentException.class, () -> graph.addEdge("Z", "A", 1.0));
+        assertThrows(IllegalArgumentException.class, () -> graph.addEdge("A", "Z", 1));
+        assertThrows(IllegalArgumentException.class, () -> graph.addEdge("Z", "A", 1));
 
-        graph.addEdge("A", "B", 1.0);
-        assertThrows(IllegalStateException.class, () -> graph.addEdge("A", "B", 2.0));
+        graph.addEdge("A", "B", 1);
+        assertThrows(IllegalStateException.class, () -> graph.addEdge("A", "B", 2));
     }
 
     @Test
@@ -105,7 +105,7 @@ public abstract class AbstractGraphTest {
     void testRemoveEdge() {
         graph.addVertex("A");
         graph.addVertex("B");
-        graph.addEdge("A", "B", 1.0);
+        graph.addEdge("A", "B", 1);
 
         assertTrue(graph.removeEdge("A", "B"));
         assertEquals(0, graph.getEdgeCount());
@@ -123,9 +123,9 @@ public abstract class AbstractGraphTest {
         graph.addVertex("C");
         graph.addVertex("D");
 
-        graph.addEdge("A", "B", 1.0);
-        graph.addEdge("A", "C", 2.0);
-        graph.addEdge("C", "A", 3.0);
+        graph.addEdge("A", "B", 1);
+        graph.addEdge("A", "C", 2);
+        graph.addEdge("C", "A", 3);
 
         Set<String> neighborsA = graph.getNeighbors("A");
         assertEquals(Set.of("B", "C"), neighborsA);
@@ -142,35 +142,35 @@ public abstract class AbstractGraphTest {
     @Test
     @DisplayName("Тестирование equals и hashCode (из AbstractGraph)")
     void testEqualsAndHashCode() {
-        Graph<String, Double> graph2 = createGraph();
+        Graph<String> graph2 = createGraph();
 
         graph.addVertex("A");
         graph.addVertex("B");
         graph.addVertex("C");
-        graph.addEdge("A", "B", 1.0);
+        graph.addEdge("A", "B", 1);
 
         graph2.addVertex("A");
         graph2.addVertex("B");
         graph2.addVertex("C");
-        graph2.addEdge("A", "B", 1.0);
+        graph2.addEdge("A", "B", 1);
 
 
         assertEquals(graph, graph2);
         assertEquals(graph.hashCode(), graph2.hashCode());
 
-        graph2.addEdge("B", "C", 2.0);
+        graph2.addEdge("B", "C", 2);
         assertNotEquals(graph, graph2);
 
-        graph.addEdge("B", "C", 2.0);
+        graph.addEdge("B", "C", 2);
         assertEquals(graph, graph2);
         assertEquals(graph.hashCode(), graph2.hashCode());
 
-        Graph<String, Double> graph3 = createGraph();
+        Graph<String> graph3 = createGraph();
         graph3.addVertex("A");
         graph3.addVertex("B");
         graph3.addVertex("C");
-        graph3.addEdge("A", "B", 1.0);
-        graph3.addEdge("B", "C", 99.0); // Другой вес
+        graph3.addEdge("A", "B", 1);
+        graph3.addEdge("B", "C", 99);
         assertNotEquals(graph, graph3);
 
         assertNotEquals(graph, null);
@@ -182,13 +182,13 @@ public abstract class AbstractGraphTest {
     void testToString() {
         graph.addVertex("A");
         graph.addVertex("B");
-        graph.addEdge("A", "B", 1.5);
+        graph.addEdge("A", "B", 15);
 
         String str = graph.toString();
 
         assertTrue(str.contains(graph.getClass().getSimpleName()));
 
-        assertTrue(str.contains("A -> {B (1.5)}"));
+        assertTrue(str.contains("A -> {B (15)}"));
         assertTrue(str.contains("B -> {}"));
     }
 
@@ -200,8 +200,8 @@ public abstract class AbstractGraphTest {
                 "V2\n" +
                 "V3\n" +
                 "2\n" +
-                "V1 V2 10.5\n" +
-                "V2 V3 20.0\n";
+                "V1 V2 10\n" +
+                "V2 V3 20\n";
 
         File tempFile = tempDir.resolve("testGraph.txt").toFile();
         try (FileWriter writer = new FileWriter(tempFile)) {
@@ -217,8 +217,8 @@ public abstract class AbstractGraphTest {
         assertTrue(graph.containsVertex("V3"));
         assertTrue(graph.containsEdge("V1", "V2"));
         assertTrue(graph.containsEdge("V2", "V3"));
-        assertEquals(10.5, graph.getEdgeWeight("V1", "V2"));
-        assertEquals(20.0, graph.getEdgeWeight("V2", "V3"));
+        assertEquals(10, graph.getEdgeWeight("V1", "V2"));
+        assertEquals(20, graph.getEdgeWeight("V2", "V3"));
     }
 
     @Test
@@ -240,7 +240,7 @@ public abstract class AbstractGraphTest {
         assertThrows(IllegalStateException.class, () -> graph.readFromFile(file2.getAbsolutePath()));
 
 
-        String ghostVertex = "2\nA\nB\n1\nA Z 1.0\n";
+        String ghostVertex = "2\nA\nB\n1\nA Z 1\n";
         File file3 = tempDir.resolve("ghost.txt").toFile();
         try (FileWriter writer = new FileWriter(file3)) {
             writer.write(ghostVertex);
