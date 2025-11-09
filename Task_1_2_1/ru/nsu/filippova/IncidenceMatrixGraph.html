@@ -67,26 +67,21 @@ loadScripts(document, 'script');</script>
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">ru.nsu.filippova</a></div>
-<h1 title="Class IncidenceMatrixGraph" class="title">Class IncidenceMatrixGraph&lt;V,<wbr>E&gt;</h1>
+<h1 title="Class IncidenceMatrixGraph" class="title">Class IncidenceMatrixGraph&lt;V&gt;</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance"><a href="AbstractGraph.html" title="class in ru.nsu.filippova">ru.nsu.filippova.AbstractGraph</a>&lt;V,<wbr>E&gt;
-<div class="inheritance">ru.nsu.filippova.IncidenceMatrixGraph&lt;V,<wbr>E&gt;</div>
+<div class="inheritance"><a href="AbstractGraph.html" title="class in ru.nsu.filippova">ru.nsu.filippova.AbstractGraph</a>&lt;V&gt;
+<div class="inheritance">ru.nsu.filippova.IncidenceMatrixGraph&lt;V&gt;</div>
 </div>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
-<dt>Type Parameters:</dt>
-<dd><code>V</code> - Тип вершин</dd>
-<dd><code>E</code> - Тип веса ребер</dd>
-</dl>
-<dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="Graph.html" title="interface in ru.nsu.filippova">Graph</a>&lt;V,<wbr>E&gt;</code></dd>
+<dd><code><a href="Graph.html" title="interface in ru.nsu.filippova">Graph</a>&lt;V&gt;</code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">IncidenceMatrixGraph&lt;V,<wbr>E&gt;</span>
-<span class="extends-implements">extends <a href="AbstractGraph.html" title="class in ru.nsu.filippova">AbstractGraph</a>&lt;V,<wbr>E&gt;</span></div>
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">IncidenceMatrixGraph&lt;V&gt;</span>
+<span class="extends-implements">extends <a href="AbstractGraph.html" title="class in ru.nsu.filippova">AbstractGraph</a>&lt;V&gt;</span></div>
 <div class="block">Реализация графа с использованием матрицы инцидентности.
  Строки - вершины, столбцы - ребра.
  matrix[i][j] = 1, если вершина i - ИСТОЧНИК ребра j.
@@ -124,9 +119,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addEdge(V,V,E)" class="member-name-link">addEdge</a><wbr>(<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">V</a>&nbsp;source,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addEdge(V,V,java.lang.Integer)" class="member-name-link">addEdge</a><wbr>(<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">V</a>&nbsp;source,
  <a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">V</a>&nbsp;destination,
- <a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">E</a>&nbsp;weight)</code></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;weight)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Добавляет ориентированное ребро с весом между двумя вершинами.</div>
 </div>
@@ -151,7 +146,7 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Возвращает количество ребер в графе.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">E</a></code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEdgeWeight(V,V)" class="member-name-link">getEdgeWeight</a><wbr>(<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">V</a>&nbsp;source,
  <a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">V</a>&nbsp;destination)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -197,6 +192,9 @@ loadScripts(document, 'script');</script>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-ru.nsu.filippova.Graph">Methods inherited from interface&nbsp;ru.nsu.filippova.<a href="Graph.html" title="interface in ru.nsu.filippova">Graph</a></h3>
+<code><a href="Graph.html#sort()">sort</a></code></div>
 </section>
 </li>
 </ul>
@@ -252,12 +250,12 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="addEdge(V,V,E)">
-<h3 id="addEdge(java.lang.Object,java.lang.Object,java.lang.Object)">addEdge</h3>
+<section class="detail" id="addEdge(V,V,java.lang.Integer)">
+<h3 id="addEdge(java.lang.Object,java.lang.Object,java.lang.Integer)">addEdge</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">addEdge</span><wbr><span class="parameters">(<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">V</a>&nbsp;source,
  <a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">V</a>&nbsp;destination,
- <a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">E</a>&nbsp;weight)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#addEdge(V,V,E)">Graph</a></code></span></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;weight)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#addEdge(V,V,java.lang.Integer)">Graph</a></code></span></div>
 <div class="block">Добавляет ориентированное ребро с весом между двумя вершинами.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -288,7 +286,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getEdgeWeight(V,V)">
 <h3 id="getEdgeWeight(java.lang.Object,java.lang.Object)">getEdgeWeight</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">E</a></span>&nbsp;<span class="element-name">getEdgeWeight</span><wbr><span class="parameters">(<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">V</a>&nbsp;source,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">getEdgeWeight</span><wbr><span class="parameters">(<a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">V</a>&nbsp;source,
  <a href="IncidenceMatrixGraph.html" title="type parameter in IncidenceMatrixGraph">V</a>&nbsp;destination)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getEdgeWeight(V,V)">Graph</a></code></span></div>
 <div class="block">Возвращает вес ребра между двумя вершинами.</div>
@@ -386,14 +384,13 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="readFromFile(java.lang.String)">
 <h3>readFromFile</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">readFromFile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filePath)</span>
-                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
-<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/ClassCastException.html" title="class or interface in java.lang" class="external-link">ClassCastException</a></span></div>
+                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#readFromFile(java.lang.String)">Graph</a></code></span></div>
 <div class="block">Загружает граф из файла в фиксированном формате.
  Очищает текущий граф перед загрузкой.
  <p>
  ВНИМАНИЕ: Для упрощения, данная реализация предполагает,
- что тип вершины V - это String, а тип веса E - это Double.
+ что тип вершины V - это String, а вес ребра представлен типом Integer.
  <p>
  Формат:
  &lt;N - количество вершин&gt;
@@ -409,7 +406,6 @@ loadScripts(document, 'script');</script>
 <dd><code>filePath</code> - путь к файлу.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - в случае ошибки чтения файла.</dd>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/ClassCastException.html" title="class or interface in java.lang" class="external-link">ClassCastException</a></code> - если типы графа не V=String, E=Double.</dd>
 </dl>
 </section>
 </li>

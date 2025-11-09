@@ -105,15 +105,13 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;V,<wbr>
-E&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;V&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#topologicalSort(ru.nsu.filippova.Graph)" class="member-name-link">topologicalSort</a><wbr>(<a href="Graph.html" title="interface in ru.nsu.filippova">Graph</a>&lt;V,<wbr>E&gt;&nbsp;graph)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;V&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;V&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#topologicalSort(ru.nsu.filippova.Graph)" class="member-name-link">topologicalSort</a><wbr>(<a href="Graph.html" title="interface in ru.nsu.filippova">Graph</a>&lt;V&gt;&nbsp;graph)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Выполняет топологическую сортировку вершин графа.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;V,<wbr>
-E&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;V&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#topologicalSortKahn(ru.nsu.filippova.Graph)" class="member-name-link">topologicalSortKahn</a><wbr>(<a href="Graph.html" title="interface in ru.nsu.filippova">Graph</a>&lt;V,<wbr>E&gt;&nbsp;graph)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;V&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;V&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#topologicalSortKahn(ru.nsu.filippova.Graph)" class="member-name-link">topologicalSortKahn</a><wbr>(<a href="Graph.html" title="interface in ru.nsu.filippova">Graph</a>&lt;V&gt;&nbsp;graph)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Альтернативная реализация: Топологическая сортировка по алгоритму Кана
  (на основе подсчета входящих степеней).</div>
@@ -152,14 +150,12 @@ E&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <li>
 <section class="detail" id="topologicalSort(ru.nsu.filippova.Graph)">
 <h3>topologicalSort</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V,<wbr>
-E&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;V&gt;</span>&nbsp;<span class="element-name">topologicalSort</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in ru.nsu.filippova">Graph</a>&lt;V,<wbr>E&gt;&nbsp;graph)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;V&gt;</span>&nbsp;<span class="element-name">topologicalSort</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in ru.nsu.filippova">Graph</a>&lt;V&gt;&nbsp;graph)</span></div>
 <div class="block">Выполняет топологическую сортировку вершин графа.
  Использует алгоритм, основанный на поиске в глубину (DFS).</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
 <dd><code>V</code> - Тип вершин.</dd>
-<dd><code>E</code> - Тип веса ребер.</dd>
 <dt>Parameters:</dt>
 <dd><code>graph</code> - граф для сортировки.</dd>
 <dt>Returns:</dt>
@@ -172,14 +168,12 @@ E&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/
 <li>
 <section class="detail" id="topologicalSortKahn(ru.nsu.filippova.Graph)">
 <h3>topologicalSortKahn</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V,<wbr>
-E&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;V&gt;</span>&nbsp;<span class="element-name">topologicalSortKahn</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in ru.nsu.filippova">Graph</a>&lt;V,<wbr>E&gt;&nbsp;graph)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;V&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;V&gt;</span>&nbsp;<span class="element-name">topologicalSortKahn</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in ru.nsu.filippova">Graph</a>&lt;V&gt;&nbsp;graph)</span></div>
 <div class="block">Альтернативная реализация: Топологическая сортировка по алгоритму Кана
  (на основе подсчета входящих степеней).</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
 <dd><code>V</code> - Тип вершин.</dd>
-<dd><code>E</code> - Тип веса ребер.</dd>
 <dt>Parameters:</dt>
 <dd><code>graph</code> - граф для сортировки.</dd>
 <dt>Returns:</dt>

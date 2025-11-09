@@ -67,20 +67,19 @@ loadScripts(document, 'script');</script>
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">ru.nsu.filippova</a></div>
-<h1 title="Interface Graph" class="title">Interface Graph&lt;V,<wbr>E&gt;</h1>
+<h1 title="Interface Graph" class="title">Interface Graph&lt;V&gt;</h1>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>Type Parameters:</dt>
 <dd><code>V</code> - Тип данных, хранимых в вершинах.</dd>
-<dd><code>E</code> - Тип данных, представляющий вес ребра (например, Double или Integer).</dd>
 </dl>
 <dl class="notes">
 <dt>All Known Implementing Classes:</dt>
 <dd><code><a href="AbstractGraph.html" title="class in ru.nsu.filippova">AbstractGraph</a></code>, <code><a href="AdjacencyListGraph.html" title="class in ru.nsu.filippova">AdjacencyListGraph</a></code>, <code><a href="AdjacencyMatrixGraph.html" title="class in ru.nsu.filippova">AdjacencyMatrixGraph</a></code>, <code><a href="IncidenceMatrixGraph.html" title="class in ru.nsu.filippova">IncidenceMatrixGraph</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">Graph&lt;V,<wbr>E&gt;</span></div>
+<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">Graph&lt;V&gt;</span></div>
 <div class="block">Интерфейс, описывающий структуру данных "Граф".
  Граф предполагается ОРИЕНТИРОВАННЫМ и ВЗВЕШЕННЫМ.</div>
 </section>
@@ -91,16 +90,16 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#addEdge(V,V,E)" class="member-name-link">addEdge</a><wbr>(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;source,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#addEdge(V,V,java.lang.Integer)" class="member-name-link">addEdge</a><wbr>(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;source,
  <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;destination,
- <a href="Graph.html" title="type parameter in Graph">E</a>&nbsp;weight)</code></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;weight)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Добавляет ориентированное ребро с весом между двумя вершинами.</div>
 </div>
@@ -125,7 +124,7 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Возвращает количество ребер в графе.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="Graph.html" title="type parameter in Graph">E</a></code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getEdgeWeight(V,V)" class="member-name-link">getEdgeWeight</a><wbr>(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;source,
  <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;destination)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
@@ -161,6 +160,11 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#removeVertex(V)" class="member-name-link">removeVertex</a><wbr>(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertex)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Удаляет вершину из графа, а также все инцидентные ей (входящие и исходящие) ребра.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#sort()" class="member-name-link">sort</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Выполняет топологическую сортировку графа.</div>
 </div>
 </div>
 </div>
@@ -203,11 +207,11 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="addEdge(V,V,E)">
-<h3 id="addEdge(java.lang.Object,java.lang.Object,java.lang.Object)">addEdge</h3>
+<section class="detail" id="addEdge(V,V,java.lang.Integer)">
+<h3 id="addEdge(java.lang.Object,java.lang.Object,java.lang.Integer)">addEdge</h3>
 <div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">addEdge</span><wbr><span class="parameters">(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;source,
  <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;destination,
- <a href="Graph.html" title="type parameter in Graph">E</a>&nbsp;weight)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;weight)</span></div>
 <div class="block">Добавляет ориентированное ребро с весом между двумя вершинами.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -241,7 +245,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getEdgeWeight(V,V)">
 <h3 id="getEdgeWeight(java.lang.Object,java.lang.Object)">getEdgeWeight</h3>
-<div class="member-signature"><span class="return-type"><a href="Graph.html" title="type parameter in Graph">E</a></span>&nbsp;<span class="element-name">getEdgeWeight</span><wbr><span class="parameters">(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;source,
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">getEdgeWeight</span><wbr><span class="parameters">(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;source,
  <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;destination)</span></div>
 <div class="block">Возвращает вес ребра между двумя вершинами.</div>
 <dl class="notes">
@@ -339,7 +343,7 @@ loadScripts(document, 'script');</script>
  Очищает текущий граф перед загрузкой.
  <p>
  ВНИМАНИЕ: Для упрощения, данная реализация предполагает,
- что тип вершины V - это String, а тип веса E - это Double.
+ что тип вершины V - это String, а вес ребра представлен типом Integer.
  <p>
  Формат:
  &lt;N - количество вершин&gt;
@@ -355,8 +359,18 @@ loadScripts(document, 'script');</script>
 <dd><code>filePath</code> - путь к файлу.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - в случае ошибки чтения файла.</dd>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/ClassCastException.html" title="class or interface in java.lang" class="external-link">ClassCastException</a></code> - если типы графа не V=String, E=Double.</dd>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></code> - если формат файла нарушен.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="sort()">
+<h3>sort</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;</span>&nbsp;<span class="element-name">sort</span>()</div>
+<div class="block">Выполняет топологическую сортировку графа.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link"><code>List</code></a> вершин в порядке топологической сортировки.</dd>
 </dl>
 </section>
 </li>
