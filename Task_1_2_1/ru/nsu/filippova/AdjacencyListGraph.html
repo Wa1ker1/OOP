@@ -119,7 +119,7 @@ loadScripts(document, 'script');</script>
  <a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;destination,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;weight)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Добавляет ориентированное ребро с весом между двумя вершинами.</div>
+<div class="block">* Добавляет ориентированное ребро с весом между двумя вершинами.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addVertex(V)" class="member-name-link">addVertex</a><wbr>(<a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;vertex)</code></div>
@@ -221,7 +221,6 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addVertex(V)">
 <h3 id="addVertex(java.lang.Object)">addVertex</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">addVertex</span><wbr><span class="parameters">(<a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;vertex)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#addVertex(V)">Graph</a></code></span></div>
 <div class="block">Добавляет вершину в граф.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -235,7 +234,6 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="removeVertex(V)">
 <h3 id="removeVertex(java.lang.Object)">removeVertex</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">removeVertex</span><wbr><span class="parameters">(<a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;vertex)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#removeVertex(V)">Graph</a></code></span></div>
 <div class="block">Удаляет вершину из графа, а также все инцидентные ей (входящие и исходящие) ребра.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -251,8 +249,7 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">addEdge</span><wbr><span class="parameters">(<a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;source,
  <a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;destination,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;weight)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#addEdge(V,V,java.lang.Integer)">Graph</a></code></span></div>
-<div class="block">Добавляет ориентированное ребро с весом между двумя вершинами.</div>
+<div class="block">* Добавляет ориентированное ребро с весом между двумя вершинами.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>source</code> - исходная вершина.</dd>
@@ -268,7 +265,6 @@ loadScripts(document, 'script');</script>
 <h3 id="removeEdge(java.lang.Object,java.lang.Object)">removeEdge</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">removeEdge</span><wbr><span class="parameters">(<a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;source,
  <a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;destination)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#removeEdge(V,V)">Graph</a></code></span></div>
 <div class="block">Удаляет ребро между двумя вершинами.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -284,7 +280,6 @@ loadScripts(document, 'script');</script>
 <h3 id="getEdgeWeight(java.lang.Object,java.lang.Object)">getEdgeWeight</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">getEdgeWeight</span><wbr><span class="parameters">(<a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;source,
  <a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;destination)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getEdgeWeight(V,V)">Graph</a></code></span></div>
 <div class="block">Возвращает вес ребра между двумя вершинами.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -299,7 +294,6 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="containsVertex(V)">
 <h3 id="containsVertex(java.lang.Object)">containsVertex</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">containsVertex</span><wbr><span class="parameters">(<a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;vertex)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#containsVertex(V)">Graph</a></code></span></div>
 <div class="block">Проверяет, содержит ли граф указанную вершину.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -314,7 +308,6 @@ loadScripts(document, 'script');</script>
 <h3 id="containsEdge(java.lang.Object,java.lang.Object)">containsEdge</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">containsEdge</span><wbr><span class="parameters">(<a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;source,
  <a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;destination)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#containsEdge(V,V)">Graph</a></code></span></div>
 <div class="block">Проверяет, существует ли ребро между двумя вершинами.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -329,7 +322,6 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getNeighbors(V)">
 <h3 id="getNeighbors(java.lang.Object)">getNeighbors</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&gt;</span>&nbsp;<span class="element-name">getNeighbors</span><wbr><span class="parameters">(<a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&nbsp;vertex)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getNeighbors(V)">Graph</a></code></span></div>
 <div class="block">Возвращает множество всех "соседей" (смежных вершин) для данной вершины.
  "Соседи" - это вершины, в которые ведут ИСХОДЯЩИЕ ребра.</div>
 <dl class="notes">
@@ -344,7 +336,6 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getVertices()">
 <h3>getVertices</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="AdjacencyListGraph.html" title="type parameter in AdjacencyListGraph">V</a>&gt;</span>&nbsp;<span class="element-name">getVertices</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getVertices()">Graph</a></code></span></div>
 <div class="block">Возвращает множество всех вершин в графе.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -356,7 +347,6 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getVertexCount()">
 <h3>getVertexCount</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getVertexCount</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getVertexCount()">Graph</a></code></span></div>
 <div class="block">Возвращает количество вершин в графе.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -368,7 +358,6 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getEdgeCount()">
 <h3>getEdgeCount</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getEdgeCount</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getEdgeCount()">Graph</a></code></span></div>
 <div class="block">Возвращает количество ребер в графе.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -381,12 +370,13 @@ loadScripts(document, 'script');</script>
 <h3>readFromFile</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">readFromFile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filePath)</span>
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#readFromFile(java.lang.String)">Graph</a></code></span></div>
 <div class="block">Загружает граф из файла в фиксированном формате.
  Очищает текущий граф перед загрузкой.
+
  <p>
  ВНИМАНИЕ: Для упрощения, данная реализация предполагает,
  что тип вершины V - это String, а вес ребра представлен типом Integer.
+
  <p>
  Формат:
  &lt;N - количество вершин&gt;

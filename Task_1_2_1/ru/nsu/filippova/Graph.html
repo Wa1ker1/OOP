@@ -101,7 +101,7 @@ loadScripts(document, 'script');</script>
  <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;destination,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;weight)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Добавляет ориентированное ребро с весом между двумя вершинами.</div>
+<div class="block">* Добавляет ориентированное ребро с весом между двумя вершинами.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#addVertex(V)" class="member-name-link">addVertex</a><wbr>(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;vertex)</code></div>
@@ -212,7 +212,7 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">addEdge</span><wbr><span class="parameters">(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;source,
  <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;destination,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;weight)</span></div>
-<div class="block">Добавляет ориентированное ребро с весом между двумя вершинами.</div>
+<div class="block">* Добавляет ориентированное ребро с весом между двумя вершинами.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>source</code> - исходная вершина.</dd>
@@ -341,9 +341,11 @@ loadScripts(document, 'script');</script>
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <div class="block">Загружает граф из файла в фиксированном формате.
  Очищает текущий граф перед загрузкой.
+
  <p>
  ВНИМАНИЕ: Для упрощения, данная реализация предполагает,
  что тип вершины V - это String, а вес ребра представлен типом Integer.
+
  <p>
  Формат:
  &lt;N - количество вершин&gt;
