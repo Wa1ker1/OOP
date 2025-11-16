@@ -53,7 +53,8 @@ public class GraphAlgorithms {
             if (!visited.contains(neighbor)) {
                 topologicalSortDfs(neighbor, graph, visited, recursionStack, sortedList);
             } else if (recursionStack.contains(neighbor)) {
-                throw new IllegalStateException("Graph contains a cycle! Topological sort impossible.");
+                throw new IllegalStateException(
+                        "Graph contains a cycle! Topological sort impossible.");
             }
         }
 

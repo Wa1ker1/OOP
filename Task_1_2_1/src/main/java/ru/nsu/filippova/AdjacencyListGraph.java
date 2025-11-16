@@ -26,6 +26,9 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
         this.edgeCount = 0;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean addVertex(V vertex) {
         if (containsVertex(vertex)) {
@@ -35,6 +38,9 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean removeVertex(V vertex) {
         if (!containsVertex(vertex)) {
@@ -52,6 +58,9 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean addEdge(V source, V destination, Integer weight) {
         if (!containsVertex(source) || !containsVertex(destination)) {
@@ -66,6 +75,9 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean removeEdge(V source, V destination) {
         if (!containsVertex(source) || !containsVertex(destination)) {
@@ -79,6 +91,9 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Integer getEdgeWeight(V source, V destination) {
         if (!containsVertex(source)) {
@@ -87,16 +102,25 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
         return adjList.get(source).get(destination);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean containsVertex(V vertex) {
         return adjList.containsKey(vertex);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean containsEdge(V source, V destination) {
         return containsVertex(source) && adjList.get(source).containsKey(destination);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Set<V> getNeighbors(V vertex) {
         if (!containsVertex(vertex)) {
@@ -105,21 +129,33 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
         return new HashSet<>(adjList.get(vertex).keySet());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Set<V> getVertices() {
         return new HashSet<>(adjList.keySet());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getVertexCount() {
         return adjList.size();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getEdgeCount() {
         return edgeCount;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void readFromFile(String filePath) throws IOException {
         this.adjList.clear();

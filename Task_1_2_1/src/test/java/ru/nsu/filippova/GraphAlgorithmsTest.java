@@ -1,19 +1,24 @@
 package ru.nsu.filippova;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-import java.util.stream.Collectors;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+
+
+
 
 class GraphAlgorithmsTest {
 
@@ -49,8 +54,8 @@ class GraphAlgorithmsTest {
                 assertTrue(indices.containsKey(v), "Вершина " + v + " отсутствует в результате");
 
                 String message = String.format(
-                        "Нарушен порядок: ребро (%s -> %s), " +
-                                "но %s (индекс %d) идет после %s (индекс %d)",
+                        "Нарушен порядок: ребро (%s -> %s), "
+                                + "но %s (индекс %d) идет после %s (индекс %d)",
                         u, v, u, indices.get(u), v, indices.get(v)
                 );
                 assertTrue(indices.get(u) < indices.get(v), message);
@@ -78,7 +83,7 @@ class GraphAlgorithmsTest {
     @ParameterizedTest
     @MethodSource("sortMethods")
     @DisplayName("Сложный DAG (ациклический граф)")
-    void testTopologicalSort_ComplexDAG(Function<Graph<String>, List<String>> sortAlgorithm) {
+    void testTopologicalSort_ComplexDag(Function<Graph<String>, List<String>> sortAlgorithm) {
         graph.addVertex("Носки");
         graph.addVertex("Обувь");
         graph.addVertex("Брюки");

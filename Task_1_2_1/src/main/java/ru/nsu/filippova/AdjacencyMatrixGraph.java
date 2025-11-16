@@ -18,7 +18,7 @@ import java.util.Set;
  */
 public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
 
-    private List<List<Integer>> matrix;
+    private final List<List<Integer>> matrix;
     private final Map<V, Integer> vertexToIndex;
     private final List<V> indexToVertex;
     private int edgeCount;
@@ -33,6 +33,9 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
         this.edgeCount = 0;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean addVertex(V vertex) {
         if (containsVertex(vertex)) {
@@ -56,6 +59,9 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean removeVertex(V vertex) {
         Integer indexToRemove = vertexToIndex.get(vertex);
@@ -91,6 +97,9 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
     }
 
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean addEdge(V source, V destination, Integer weight) {
         Integer srcIdx = vertexToIndex.get(source);
@@ -108,6 +117,9 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean removeEdge(V source, V destination) {
         Integer srcIdx = vertexToIndex.get(source);
@@ -122,6 +134,9 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Integer getEdgeWeight(V source, V destination) {
         Integer srcIdx = vertexToIndex.get(source);
@@ -133,11 +148,17 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
         return matrix.get(srcIdx).get(destIdx);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean containsVertex(V vertex) {
         return vertexToIndex.containsKey(vertex);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean containsEdge(V source, V destination) {
         Integer srcIdx = vertexToIndex.get(source);
@@ -145,6 +166,9 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
         return srcIdx != null && destIdx != null && matrix.get(srcIdx).get(destIdx) != null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Set<V> getNeighbors(V vertex) {
         Integer srcIdx = vertexToIndex.get(vertex);
@@ -162,21 +186,33 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
         return neighbors;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Set<V> getVertices() {
         return new HashSet<>(indexToVertex);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getVertexCount() {
         return indexToVertex.size();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getEdgeCount() {
         return edgeCount;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void readFromFile(String filePath) throws IOException {
         this.matrix.clear();

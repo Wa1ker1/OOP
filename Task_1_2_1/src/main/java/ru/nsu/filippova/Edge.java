@@ -12,6 +12,13 @@ public class Edge<V> {
     final V destination;
     Integer weight;
 
+    /**
+     * Создает ориентированное ребро с указанными вершинами и весом.
+     *
+     * @param source      исходная вершина.
+     * @param destination конечная вершина.
+     * @param weight      вес ребра (может быть null).
+     */
     public Edge(V source, V destination, Integer weight) {
         this.source = source;
         this.destination = destination;

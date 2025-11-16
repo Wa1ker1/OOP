@@ -1,17 +1,25 @@
 package ru.nsu.filippova;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Set;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+
+
 
 /**
  * Абстрактный класс для тестирования контракта интерфейса Graph.
@@ -144,16 +152,15 @@ public abstract class AbstractGraphTest {
     void testEqualsAndHashCode() {
         Graph<String> graph2 = createGraph();
 
-        graph.addVertex("A");
-        graph.addVertex("B");
-        graph.addVertex("C");
-        graph.addEdge("A", "B", 1);
-
         graph2.addVertex("A");
         graph2.addVertex("B");
         graph2.addVertex("C");
         graph2.addEdge("A", "B", 1);
 
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+        graph.addEdge("A", "B", 1);
 
         assertEquals(graph, graph2);
         assertEquals(graph.hashCode(), graph2.hashCode());
@@ -171,10 +178,10 @@ public abstract class AbstractGraphTest {
         graph3.addVertex("C");
         graph3.addEdge("A", "B", 1);
         graph3.addEdge("B", "C", 99);
-        assertNotEquals(graph, graph3);
 
-        assertNotEquals(graph, null);
-        assertNotEquals(graph, new Object());
+        assertNotEquals(null, graph);
+        assertNotEquals(new Object(), graph);
+        assertNotEquals(graph, graph3);
     }
 
     @Test
@@ -195,13 +202,15 @@ public abstract class AbstractGraphTest {
     @Test
     @DisplayName("Чтение из файла")
     void testReadFromFile(@TempDir Path tempDir) throws IOException {
-        String content = "3\n" +
-                "V1\n" +
-                "V2\n" +
-                "V3\n" +
-                "2\n" +
-                "V1 V2 10\n" +
-                "V2 V3 20\n";
+        String content = """
+                3
+                V1
+                V2
+                V3
+                2
+                V1 V2 10
+                V2 V3 20
+                """;
 
         File tempFile = tempDir.resolve("testGraph.txt").toFile();
         try (FileWriter writer = new FileWriter(tempFile)) {
@@ -230,14 +239,16 @@ public abstract class AbstractGraphTest {
         try (FileWriter writer = new FileWriter(file1)) {
             writer.write(badNumber);
         }
-        assertThrows(IllegalStateException.class, () -> graph.readFromFile(file1.getAbsolutePath()));
+        assertThrows(IllegalStateException.class, () ->
+                graph.readFromFile(file1.getAbsolutePath()));
 
         String badEdge = "2\nA\nB\n1\nA B\n";
         File file2 = tempDir.resolve("badEdge.txt").toFile();
         try (FileWriter writer = new FileWriter(file2)) {
             writer.write(badEdge);
         }
-        assertThrows(IllegalStateException.class, () -> graph.readFromFile(file2.getAbsolutePath()));
+        assertThrows(IllegalStateException.class, () ->
+                graph.readFromFile(file2.getAbsolutePath()));
 
 
         String ghostVertex = "2\nA\nB\n1\nA Z 1\n";
@@ -245,7 +256,8 @@ public abstract class AbstractGraphTest {
         try (FileWriter writer = new FileWriter(file3)) {
             writer.write(ghostVertex);
         }
-        assertThrows(IllegalStateException.class, () -> graph.readFromFile(file3.getAbsolutePath()));
+        assertThrows(IllegalStateException.class, () ->
+                graph.readFromFile(file3.getAbsolutePath()));
 
         assertThrows(IOException.class, () -> graph.readFromFile("non_existent_file.txt"));
     }

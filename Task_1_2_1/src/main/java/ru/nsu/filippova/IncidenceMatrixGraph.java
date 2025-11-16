@@ -16,6 +16,7 @@ import java.util.Set;
  * matrix[i][j] = 1, если вершина i - ИСТОЧНИК ребра j.
  * matrix[i][j] = -1, если вершина i - НАЗНАЧЕНИЕ ребра j.
  * matrix[i][j] = 0, в остальных случаях.
+ *
  * <p>
  * Веса ребер хранятся отдельно, т.к. матрица инцидентности их не содержит.
  */
@@ -23,7 +24,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     private final Map<V, Integer> vertexToIndex;
     private final List<V> indexToVertex;
     private final List<Edge<V>> edges;
-    private List<List<Integer>> matrix;
+    private final List<List<Integer>> matrix;
 
     /**
      * Создает пустой граф на основе матрицы инцидентности.
@@ -35,6 +36,9 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
         this.matrix = new ArrayList<>();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean addVertex(V vertex) {
         if (containsVertex(vertex)) {
@@ -52,6 +56,9 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean removeVertex(V vertex) {
         Integer indexToRemove = vertexToIndex.get(vertex);
@@ -82,6 +89,9 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean addEdge(V source, V destination, Integer weight) {
         Integer srcIdx = vertexToIndex.get(source);
@@ -110,6 +120,9 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean removeEdge(V source, V destination) {
         int edgeIndex = -1;
@@ -133,6 +146,13 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
         return true;
     }
 
+    /**
+     * Находит ребро между указанными вершинами.
+     *
+     * @param source      исходная вершина.
+     * @param destination конечная вершина.
+     * @return найденное ребро или null, если ребра нет.
+     */
     private Edge<V> findEdge(V source, V destination) {
         for (Edge<V> edge : edges) {
             if (edge.source.equals(source) && edge.destination.equals(destination)) {
@@ -143,22 +163,34 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     }
 
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Integer getEdgeWeight(V source, V destination) {
         Edge<V> edge = findEdge(source, destination);
         return (edge != null) ? edge.weight : null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean containsVertex(V vertex) {
         return vertexToIndex.containsKey(vertex);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean containsEdge(V source, V destination) {
         return findEdge(source, destination) != null;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Set<V> getNeighbors(V vertex) {
         Integer srcIdx = vertexToIndex.get(vertex);
@@ -177,21 +209,33 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
         return neighbors;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Set<V> getVertices() {
         return new HashSet<>(indexToVertex);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getVertexCount() {
         return indexToVertex.size();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getEdgeCount() {
         return edges.size();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void readFromFile(String filePath) throws IOException {
         this.matrix.clear();

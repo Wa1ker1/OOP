@@ -25,7 +25,7 @@ public abstract class AbstractGraph<V> implements Graph<V> {
         if (this == obj) {
             return true;
         }
-        if (obj == null || !(obj instanceof Graph)) {
+        if (!(obj instanceof Graph)) {
             return false;
         }
 
