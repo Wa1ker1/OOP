@@ -14,11 +14,14 @@ import java.util.List;
  * Потоковый поиск подстроки в текстовом файле большого размера.
  * Работает с UTF-8, индексирует по символам.
  */
+
 public class StreamingFileSubstringSearcher implements SubstringSearcher {
 
     private final int bufferSize;
 
     /**
+     * Создает поисковик с пользовательским размером буфера.
+     *
      * @param bufferSize размер буфера чтения (в символах), должен быть > 0
      */
     public StreamingFileSubstringSearcher(int bufferSize) {

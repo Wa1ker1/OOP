@@ -1,7 +1,7 @@
 package ru.nsu.filippova;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -9,8 +9,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Тесты для проверки работы StreamingFileSubstringSearcher на больших файлах.
@@ -81,7 +82,8 @@ class StreamingFileSubstringSearcherBigFileTest {
 
         List<Long> result = searcher.findOccurrences(file, pattern);
 
-        assertEquals(repeats, result.size(), "Количество вхождений должно совпадать с числом повторов");
+        assertEquals(repeats, result.size(),
+                "Количество вхождений должно совпадать с числом повторов");
 
         for (int i = 0; i < 10; i++) {
             long expectedIndex = i * (long) chunk.length() + 3L;

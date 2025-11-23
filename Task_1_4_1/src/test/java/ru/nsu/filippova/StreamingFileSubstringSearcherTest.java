@@ -1,15 +1,18 @@
 package ru.nsu.filippova;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  * Тесты для StreamingFileSubstringSearcher.
@@ -145,13 +148,15 @@ class StreamingFileSubstringSearcherTest {
         for (int i = 0; i < 10_000; i++) {
             builder.append("abc");
         }
-        int pos = builder.length();
+
         builder.append("PATTERN");
         Files.writeString(file, builder.toString(), StandardCharsets.UTF_8);
 
         SubstringSearcher searcher = new StreamingFileSubstringSearcher(1024);
 
         List<Long> result = searcher.findOccurrences(file, "PATTERN");
+
+        int pos = builder.length();
 
         assertEquals(1, result.size());
         assertEquals((long) pos, result.get(0));
