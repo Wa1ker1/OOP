@@ -149,14 +149,15 @@ class StreamingFileSubstringSearcherTest {
             builder.append("abc");
         }
 
-        builder.append("PATTERN");
+        String pattern = "PATTERN";
+        builder.append(pattern);
         Files.writeString(file, builder.toString(), StandardCharsets.UTF_8);
 
         SubstringSearcher searcher = new StreamingFileSubstringSearcher(1024);
 
-        List<Long> result = searcher.findOccurrences(file, "PATTERN");
+        List<Long> result = searcher.findOccurrences(file, pattern);
 
-        int pos = builder.length();
+        int pos = builder.length() - pattern.length();
 
         assertEquals(1, result.size());
         assertEquals((long) pos, result.get(0));
