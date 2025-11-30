@@ -48,7 +48,7 @@ loadScripts(document, 'script');</script>
 <div class="header">
 <h1>Index</h1>
 </div>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a>
+<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:K">K</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a>
 <h2 class="title" id="I:A">A</h2>
 <dl class="index">
 <dt><a href="ru/nsu/filippova/AbstractGraph.html" class="type-name-link" title="class in ru.nsu.filippova">AbstractGraph</a>&lt;<a href="ru/nsu/filippova/AbstractGraph.html" title="type parameter in AbstractGraph">V</a>&gt; - Class in <a href="ru/nsu/filippova/package-summary.html">ru.nsu.filippova</a></dt>
@@ -139,6 +139,13 @@ loadScripts(document, 'script');</script>
 <dt><a href="ru/nsu/filippova/IncidenceMatrixGraph.html#containsVertex(V)" class="member-name-link">containsVertex(V)</a> - Method in class ru.nsu.filippova.<a href="ru/nsu/filippova/IncidenceMatrixGraph.html" title="class in ru.nsu.filippova">IncidenceMatrixGraph</a></dt>
 <dd>
 <div class="block">Проверяет, содержит ли граф указанную вершину.</div>
+</dd>
+</dl>
+<h2 class="title" id="I:D">D</h2>
+<dl class="index">
+<dt><a href="ru/nsu/filippova/GraphSortStrategies.html#depthFirstTopological()" class="member-name-link">depthFirstTopological()</a> - Static method in class ru.nsu.filippova.<a href="ru/nsu/filippova/GraphSortStrategies.html" title="class in ru.nsu.filippova">GraphSortStrategies</a></dt>
+<dd>
+<div class="block">Топологическая сортировка на основе DFS.</div>
 </dd>
 </dl>
 <h2 class="title" id="I:E">E</h2>
@@ -251,6 +258,14 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="ru/nsu/filippova/GraphAlgorithms.html#%3Cinit%3E()" class="member-name-link">GraphAlgorithms()</a> - Constructor for class ru.nsu.filippova.<a href="ru/nsu/filippova/GraphAlgorithms.html" title="class in ru.nsu.filippova">GraphAlgorithms</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="ru/nsu/filippova/GraphSortStrategies.html" class="type-name-link" title="class in ru.nsu.filippova">GraphSortStrategies</a> - Class in <a href="ru/nsu/filippova/package-summary.html">ru.nsu.filippova</a></dt>
+<dd>
+<div class="block">Готовые стратегии сортировки вершин.</div>
+</dd>
+<dt><a href="ru/nsu/filippova/GraphSortStrategy.html" class="type-name-link" title="interface in ru.nsu.filippova">GraphSortStrategy</a>&lt;<a href="ru/nsu/filippova/GraphSortStrategy.html" title="type parameter in GraphSortStrategy">V</a>&gt; - Interface in <a href="ru/nsu/filippova/package-summary.html">ru.nsu.filippova</a></dt>
+<dd>
+<div class="block">Стратегия сортировки вершин графа.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:H">H</h2>
 <dl class="index">
@@ -270,6 +285,13 @@ loadScripts(document, 'script');</script>
 <dt><a href="ru/nsu/filippova/IncidenceMatrixGraph.html#%3Cinit%3E()" class="member-name-link">IncidenceMatrixGraph()</a> - Constructor for class ru.nsu.filippova.<a href="ru/nsu/filippova/IncidenceMatrixGraph.html" title="class in ru.nsu.filippova">IncidenceMatrixGraph</a></dt>
 <dd>
 <div class="block">Создает пустой граф на основе матрицы инцидентности.</div>
+</dd>
+</dl>
+<h2 class="title" id="I:K">K</h2>
+<dl class="index">
+<dt><a href="ru/nsu/filippova/GraphSortStrategies.html#kahnTopological()" class="member-name-link">kahnTopological()</a> - Static method in class ru.nsu.filippova.<a href="ru/nsu/filippova/GraphSortStrategies.html" title="class in ru.nsu.filippova">GraphSortStrategies</a></dt>
+<dd>
+<div class="block">Топологическая сортировка по алгоритму Кана.</div>
 </dd>
 </dl>
 <h2 class="title" id="I:R">R</h2>
@@ -331,6 +353,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Выполняет топологическую сортировку графа.</div>
 </dd>
+<dt><a href="ru/nsu/filippova/GraphSortStrategy.html#sort(ru.nsu.filippova.Graph)" class="member-name-link">sort(Graph&lt;V&gt;)</a> - Method in interface ru.nsu.filippova.<a href="ru/nsu/filippova/GraphSortStrategy.html" title="interface in ru.nsu.filippova">GraphSortStrategy</a></dt>
+<dd>
+<div class="block">Выполняет сортировку вершин для переданного графа.</div>
+</dd>
+<dt><a href="ru/nsu/filippova/Graph.html#sort(ru.nsu.filippova.GraphSortStrategy)" class="member-name-link">sort(GraphSortStrategy&lt;V&gt;)</a> - Method in interface ru.nsu.filippova.<a href="ru/nsu/filippova/Graph.html" title="interface in ru.nsu.filippova">Graph</a></dt>
+<dd>
+<div class="block">Выполняет сортировку с использованием переданной стратегии.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:T">T</h2>
 <dl class="index">
@@ -348,7 +378,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Возвращает строковое представление графа.</div>
 </dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a></main>
+<a href="#I:A">A</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:K">K</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a></main>
 </div>
 </div>
 </body>

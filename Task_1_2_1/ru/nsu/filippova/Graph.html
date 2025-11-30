@@ -166,6 +166,11 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
 <div class="block">Выполняет топологическую сортировку графа.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#sort(ru.nsu.filippova.GraphSortStrategy)" class="member-name-link">sort</a><wbr>(<a href="GraphSortStrategy.html" title="interface in ru.nsu.filippova">GraphSortStrategy</a>&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;strategy)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Выполняет сортировку с использованием переданной стратегии.</div>
+</div>
 </div>
 </div>
 </div>
@@ -222,7 +227,7 @@ loadScripts(document, 'script');</script>
 <dd>true, если ребро было успешно добавлено.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - если одна из вершин (source или destination)
- не найдена в графе.</dd>
+     не найдена в графе.</dd>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></code> - если ребро между этими вершинами уже существует.</dd>
 </dl>
 </section>
@@ -373,6 +378,19 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link"><code>List</code></a> вершин в порядке топологической сортировки.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="sort(ru.nsu.filippova.GraphSortStrategy)">
+<h3>sort</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;</span>&nbsp;<span class="element-name">sort</span><wbr><span class="parameters">(<a href="GraphSortStrategy.html" title="interface in ru.nsu.filippova">GraphSortStrategy</a>&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;strategy)</span></div>
+<div class="block">Выполняет сортировку с использованием переданной стратегии.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>strategy</code> - стратегия сортировки</dd>
+<dt>Returns:</dt>
+<dd><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link"><code>List</code></a> вершин в порядке, определяемом стратегией.</dd>
 </dl>
 </section>
 </li>
