@@ -36,7 +36,7 @@ public interface Graph<V> {
      * @param weight      вес ребра.
      * @return true, если ребро было успешно добавлено.
      * @throws IllegalArgumentException если одна из вершин (source или destination)
-     * не найдена в графе.
+     *     не найдена в графе.
      * @throws IllegalStateException    если ребро между этими вершинами уже существует.
      */
     boolean addEdge(V source, V destination, Integer weight);
@@ -138,6 +138,16 @@ public interface Graph<V> {
      * @return {@link List} вершин в порядке топологической сортировки.
      */
     default List<V> sort() {
-        return GraphAlgorithms.topologicalSort(this);
+        return sort(GraphSortStrategies.depthFirstTopological());
+    }
+
+    /**
+     * Выполняет сортировку с использованием переданной стратегии.
+     *
+     * @param strategy стратегия сортировки
+     * @return {@link List} вершин в порядке, определяемом стратегией.
+     */
+    default List<V> sort(GraphSortStrategy<V> strategy) {
+        return strategy.sort(this);
     }
 }
