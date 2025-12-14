@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.filippova","l":"Main"},{"p":"ru.nsu.filippova","l":"StreamingFileSubstringSearcher"},{"p":"ru.nsu.filippova","l":"SubstringSearcher"}];updateSearchResults();
