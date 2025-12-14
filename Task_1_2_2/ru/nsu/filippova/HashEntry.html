@@ -115,22 +115,28 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="HashEntry.html" title="type parameter in HashEntry">K</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getKey()" class="member-name-link">getKey</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Возвращает ключ, связанный с этим элементом.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="HashEntry.html" title="class in ru.nsu.filippova">HashEntry</a>&lt;<a href="HashEntry.html" title="type parameter in HashEntry">K</a>,<wbr><a href="HashEntry.html" title="type parameter in HashEntry">V</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNext()" class="member-name-link">getNext</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Возвращает ссылку на следующий элемент в цепочке бакета.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="HashEntry.html" title="type parameter in HashEntry">V</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValue()" class="member-name-link">getValue</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Возвращает сохранённое значение.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNext(ru.nsu.filippova.HashEntry)" class="member-name-link">setNext</a><wbr>(<a href="HashEntry.html" title="class in ru.nsu.filippova">HashEntry</a>&lt;<a href="HashEntry.html" title="type parameter in HashEntry">K</a>,<wbr><a href="HashEntry.html" title="type parameter in HashEntry">V</a>&gt;&nbsp;next)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Устанавливает следующий элемент цепочки.</div>
+<div class="block">Перенастраивает ссылку на следующий элемент в цепочке.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setValue(V)" class="member-name-link">setValue</a><wbr>(<a href="HashEntry.html" title="type parameter in HashEntry">V</a>&nbsp;value)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Устанавливает новое значение.</div>
+<div class="block">Устанавливает новое значение без изменения положения элемента.</div>
 </div>
 </div>
 </div>
@@ -176,6 +182,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getKey()">
 <h3>getKey</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="HashEntry.html" title="type parameter in HashEntry">K</a></span>&nbsp;<span class="element-name">getKey</span>()</div>
+<div class="block">Возвращает ключ, связанный с этим элементом.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>ключ</dd>
@@ -186,6 +193,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getValue()">
 <h3>getValue</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="HashEntry.html" title="type parameter in HashEntry">V</a></span>&nbsp;<span class="element-name">getValue</span>()</div>
+<div class="block">Возвращает сохранённое значение.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>значение</dd>
@@ -196,7 +204,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="setValue(V)">
 <h3 id="setValue(java.lang.Object)">setValue</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setValue</span><wbr><span class="parameters">(<a href="HashEntry.html" title="type parameter in HashEntry">V</a>&nbsp;value)</span></div>
-<div class="block">Устанавливает новое значение.</div>
+<div class="block">Устанавливает новое значение без изменения положения элемента.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>value</code> - новое значение</dd>
@@ -207,6 +215,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getNext()">
 <h3>getNext</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="HashEntry.html" title="class in ru.nsu.filippova">HashEntry</a>&lt;<a href="HashEntry.html" title="type parameter in HashEntry">K</a>,<wbr><a href="HashEntry.html" title="type parameter in HashEntry">V</a>&gt;</span>&nbsp;<span class="element-name">getNext</span>()</div>
+<div class="block">Возвращает ссылку на следующий элемент в цепочке бакета.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>следующий элемент в цепочке</dd>
@@ -217,7 +226,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="setNext(ru.nsu.filippova.HashEntry)">
 <h3>setNext</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setNext</span><wbr><span class="parameters">(<a href="HashEntry.html" title="class in ru.nsu.filippova">HashEntry</a>&lt;<a href="HashEntry.html" title="type parameter in HashEntry">K</a>,<wbr><a href="HashEntry.html" title="type parameter in HashEntry">V</a>&gt;&nbsp;next)</span></div>
-<div class="block">Устанавливает следующий элемент цепочки.</div>
+<div class="block">Перенастраивает ссылку на следующий элемент в цепочке.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>next</code> - новый следующий элемент</dd>
