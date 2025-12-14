@@ -1,9 +1,11 @@
 package ru.nsu.filippova;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("HashTable: коллизии и resize")
 class HashTableCollisionAndResizeTest {
@@ -13,13 +15,26 @@ class HashTableCollisionAndResizeTest {
      * Простой трюк: использовать объекты с переопределённым hashCode.
      */
     static final class BadKey {
-        final String s;
-        BadKey(String s) { this.s = s; }
-        @Override public int hashCode() { return 42; } 
-        @Override public boolean equals(Object o) {
-            return (o instanceof BadKey) && ((BadKey) o).s.equals(this.s);
+        final String value;
+
+        BadKey(String value) {
+            this.value = value;
         }
-        @Override public String toString() { return "K(" + s + ")"; }
+
+        @Override
+        public int hashCode() {
+            return 42;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            return (o instanceof BadKey) && ((BadKey) o).value.equals(this.value);
+        }
+
+        @Override
+        public String toString() {
+            return "K(" + value + ")";
+        }
     }
 
     @Test

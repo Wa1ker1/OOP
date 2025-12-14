@@ -29,11 +29,21 @@ public class HashTableIterator<K, V> implements Iterator<HashEntry<K, V>> {
         this.current = findNextNonEmptyBucket();
     }
 
+    /**
+     * Проверяет, остались ли элементы для обхода.
+     *
+     * @return true, если есть ещё элементы
+     */
     @Override
     public boolean hasNext() {
         return current != null;
     }
 
+    /**
+     * Возвращает следующий элемент, контролируя модификации таблицы.
+     *
+     * @return следующий {@link HashEntry}
+     */
     @Override
     public HashEntry<K, V> next() {
         checkForComodification();
@@ -50,12 +60,20 @@ public class HashTableIterator<K, V> implements Iterator<HashEntry<K, V>> {
         return result;
     }
 
+    /**
+     * Проверяет, не была ли таблица изменена после создания итератора.
+     */
     private void checkForComodification() {
         if (expectedModCount != tableRef.getModCount()) {
             throw new ConcurrentModificationException("HashTable was modified during iteration");
         }
     }
 
+    /**
+     * Находит следующую непустую цепочку в массиве бакетов.
+     *
+     * @return первый элемент следующего непустого бакета или {@code null}
+     */
     private HashEntry<K, V> findNextNonEmptyBucket() {
         HashEntry<K, V>[] arr = tableRef.getTable();
         while (bucketIndex < arr.length) {

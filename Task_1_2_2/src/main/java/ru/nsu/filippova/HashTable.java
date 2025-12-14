@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 
 /**
  * Параметризованная хеш-таблица на цепочках.
+ *
  * <p>
  * Поддерживает операции:
  * <ul>
@@ -24,16 +25,16 @@ import java.util.NoSuchElementException;
  */
 public class HashTable<K, V> implements Iterable<HashEntry<K, V>> {
 
-    /** начальная ёмкость по умолчанию */
+    /** начальная ёмкость по умолчанию. */
     private static final int DEFAULT_CAPACITY = 16;
-    /** целевой коэффициент загрузки */
+    /** целевой коэффициент загрузки. */
     private static final float LOAD_FACTOR = 0.75f;
 
-    /** массив бакетов */
+    /** массив бакетов. */
     private HashEntry<K, V>[] table;
-    /** текущее количество элементов */
+    /** текущее количество элементов. */
     private int size;
-    /** модификации структуры — для итератора */
+    /** модификации структуры — для итератора. */
     private int modCount;
 
     /**
@@ -63,6 +64,7 @@ public class HashTable<K, V> implements Iterable<HashEntry<K, V>> {
 
     /**
      * Добавляет пару (key, value), если такого ключа ещё нет.
+     *
      * <p>
      * В задании есть отдельный метод {@link #update(Object, Object)}, поэтому
      * здесь при наличии ключа кидаем исключение.
@@ -175,6 +177,8 @@ public class HashTable<K, V> implements Iterable<HashEntry<K, V>> {
     }
 
     /**
+     * Возвращает текущее количество элементов в таблице.
+     *
      * @return текущее количество элементов
      */
     public int size() {
@@ -193,6 +197,7 @@ public class HashTable<K, V> implements Iterable<HashEntry<K, V>> {
 
     /**
      * Итератор по всем парам (k, v).
+     *
      * <p>
      * Если во время обхода структура была изменена — бросит
      * {@link ConcurrentModificationException}.
@@ -212,11 +217,17 @@ public class HashTable<K, V> implements Iterable<HashEntry<K, V>> {
     @Override
     @SuppressWarnings("unchecked")
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof HashTable<?, ?>)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof HashTable<?, ?>)) {
+            return false;
+        }
 
         HashTable<?, ?> rawOther = (HashTable<?, ?>) o;
-        if (this.size != rawOther.size) return false;
+        if (this.size != rawOther.size) {
+            return false;
+        }
 
         HashTable<K, ?> other = (HashTable<K, ?>) rawOther;
 
@@ -226,7 +237,9 @@ public class HashTable<K, V> implements Iterable<HashEntry<K, V>> {
                 return false;
             }
             if (entry.getValue() == null) {
-                if (otherVal != null) return false;
+                if (otherVal != null) {
+                    return false;
+                }
             } else if (!entry.getValue().equals(otherVal)) {
                 return false;
             }
@@ -235,7 +248,7 @@ public class HashTable<K, V> implements Iterable<HashEntry<K, V>> {
     }
 
     /**
-     * Строковое представление в виде {k1=v1, k2=v2}
+     * Строковое представление в виде {k1=v1, k2=v2}.
      *
      * @return строка
      */
@@ -254,22 +267,45 @@ public class HashTable<K, V> implements Iterable<HashEntry<K, V>> {
         return sb.toString();
     }
 
+    /**
+     * Вычисляет индекс бакета для заданного ключа.
+     *
+     * @param key ключ
+     * @return номер бакета
+     */
     private int indexFor(K key) {
         int h = (key == null) ? 0 : key.hashCode();
         return (h & 0x7fffffff) % table.length;
     }
 
+    /**
+     * Сравнивает ключи с учётом возможных {@code null}-ов.
+     *
+     * @param k1 первый ключ
+     * @param k2 второй ключ
+     * @return true, если значения эквивалентны
+     */
     private boolean keysEqual(K k1, K k2) {
-        if (k1 == null) return k2 == null;
+        if (k1 == null) {
+            return k2 == null;
+        }
         return k1.equals(k2);
     }
 
+    /**
+     * Контролирует коэффициент загрузки и при необходимости расширяет таблицу.
+     */
     private void ensureCapacity() {
         if ((float) (size + 1) / table.length > LOAD_FACTOR) {
             resize(table.length * 2);
         }
     }
 
+    /**
+     * Перестраивает таблицу с новой ёмкостью и перераспределяет пары.
+     *
+     * @param newCapacity новая ёмкость таблицы
+     */
     @SuppressWarnings("unchecked")
     private void resize(int newCapacity) {
         HashEntry<K, V>[] oldTable = this.table;
@@ -285,11 +321,20 @@ public class HashTable<K, V> implements Iterable<HashEntry<K, V>> {
         }
     }
 
-    /* пакетный доступ для итератора */
+    /**
+     * Возвращает количество структурных модификаций (для итератора).
+     *
+     * @return счётчик модификаций
+     */
     int getModCount() {
         return modCount;
     }
 
+    /**
+     * Предоставляет массив бакетов для итератора.
+     *
+     * @return внутренний массив
+     */
     HashEntry<K, V>[] getTable() {
         return table;
     }

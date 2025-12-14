@@ -1,13 +1,16 @@
 package ru.nsu.filippova;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ConcurrentModificationException;
 import java.util.HashSet;
 import java.util.Set;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 @DisplayName("HashTable: итератор и fail-fast")
 class HashTableIteratorTest {
@@ -31,7 +34,8 @@ class HashTableIteratorTest {
     }
 
     @Test
-    @DisplayName("Fail-fast: изменение структуры во время обхода -> ConcurrentModificationException")
+    @DisplayName("Fail-fast: изменение структуры во время обхода ->"
+            + " ConcurrentModificationException")
     void failFastOnPut() {
         HashTable<String, Integer> ht = new HashTable<>();
         ht.put("a", 1);
