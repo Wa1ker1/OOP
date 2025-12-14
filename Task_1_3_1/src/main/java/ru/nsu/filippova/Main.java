@@ -1,6 +1,7 @@
 package ru.nsu.filippova;
 
 import java.io.IOException;
+import java.io.PrintStream;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -19,9 +20,24 @@ public class Main {
      * @param args args[0] – путь к файлу, args[1] – подстрока
      */
     public static void main(String[] args) {
+        int exitCode = run(args, System.out, System.err);
+        if (exitCode != 0) {
+            System.exit(exitCode);
+        }
+    }
+
+    /**
+     * Реализация CLI-логики, выделенная для удобства тестирования.
+     *
+     * @param args аргументы командной строки
+     * @param out  поток стандартного вывода
+     * @param err  поток стандартного вывода ошибок
+     * @return код завершения (0 – успех, иначе ошибка)
+     */
+    static int run(String[] args, PrintStream out, PrintStream err) {
         if (args.length < 2) {
-            System.err.println("Использование: java ru.nsu.filippova.Main <file> <pattern>");
-            System.exit(1);
+            err.println("Использование: java ru.nsu.filippova.Main <file> <pattern>");
+            return 1;
         }
 
         Path file = Path.of(args[0]);
@@ -31,13 +47,14 @@ public class Main {
 
         try {
             List<Long> occurrences = searcher.findOccurrences(file, pattern);
-            System.out.println(occurrences);
+            out.println(occurrences);
+            return 0;
         } catch (IOException e) {
-            System.err.println("Ошибка чтения файла: " + e.getMessage());
-            System.exit(2);
+            err.println("Ошибка чтения файла: " + e.getMessage());
+            return 2;
         } catch (IllegalArgumentException e) {
-            System.err.println("Неверные аргументы: " + e.getMessage());
-            System.exit(3);
+            err.println("Неверные аргументы: " + e.getMessage());
+            return 3;
         }
     }
 }
