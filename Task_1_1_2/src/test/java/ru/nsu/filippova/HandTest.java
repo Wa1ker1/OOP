@@ -1,13 +1,13 @@
 package ru.nsu.filippova;
 
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
 
 class HandTest {
 
@@ -52,7 +52,8 @@ class HandTest {
         Hand hand = new Hand();
         hand.add(new Card(Suit.HEARTS, Rank.FIVE));
         List<Card> cards = hand.getCards();
-        assertThrows(UnsupportedOperationException.class, () -> cards.add(new Card(Suit.CLUBS, Rank.NINE)));
+        assertThrows(UnsupportedOperationException.class,
+                () -> cards.add(new Card(Suit.CLUBS, Rank.NINE)));
     }
 
     @Test

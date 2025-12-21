@@ -95,7 +95,8 @@ public class BlackjackGame {
                 return Winner.NONE;
             }
 
-            int choice = readBinaryChoice("Введите \"1\", чтобы взять карту, и \"0\", чтобы остановиться...");
+            int choice = readBinaryChoice("Введите \"1\", "
+                    + "чтобы взять карту, и \"0\", чтобы остановиться...");
             if (choice == 0) {
                 return Winner.NONE;
             }
@@ -143,11 +144,13 @@ public class BlackjackGame {
     }
 
     private void printHands(boolean hideDealerCard) {
-        System.out.println("Ваши карты: " + player.getHand().format(false) + " ⇒ " + player.getHand().getValue());
+        System.out.println("Ваши карты: " + player.getHand().format(false)
+                + " ⇒ " + player.getHand().getValue());
         if (hideDealerCard) {
             System.out.println("Карты дилера: " + dealer.getHand().format(true));
         } else {
-            System.out.println("Карты дилера: " + dealer.getHand().format(false) + " ⇒ " + dealer.getHand().getValue());
+            System.out.println("Карты дилера: " + dealer.getHand().format(false)
+                    + " ⇒ " + dealer.getHand().getValue());
         }
     }
 
@@ -181,7 +184,8 @@ public class BlackjackGame {
     }
 
     private boolean askForNextRound() {
-        int choice = readBinaryChoice("Введите \"1\", чтобы сыграть еще раунд, и \"0\", чтобы завершить игру...");
+        int choice = readBinaryChoice("Введите \"1\","
+                + " чтобы сыграть еще раунд, и \"0\", чтобы завершить игру...");
         return choice == 1;
     }
 

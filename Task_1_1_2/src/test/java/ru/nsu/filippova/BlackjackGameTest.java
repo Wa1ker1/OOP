@@ -1,6 +1,8 @@
 package ru.nsu.filippova;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -11,10 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 class BlackjackGameTest {
 
@@ -199,7 +198,8 @@ class BlackjackGameTest {
         assertEquals(1, getIntField(game, "draws"));
     }
 
-    private void prepareHands(BlackjackGame game, List<Card> playerCards, List<Card> dealerCards) throws Exception {
+    private void prepareHands(BlackjackGame game, List<Card> playerCards, List<Card> dealerCards)
+            throws Exception {
         Player player = getPlayer(game);
         player.resetHand();
         for (Card card : playerCards) {
@@ -248,7 +248,8 @@ class BlackjackGameTest {
         return (Enum<?>) method.invoke(game);
     }
 
-    private Object invoke(BlackjackGame game, String name, Class<?>[] parameterTypes, Object... args) throws Exception {
+    private Object invoke(BlackjackGame game, String name,
+                          Class<?>[] parameterTypes, Object... args) throws Exception {
         Method method = BlackjackGame.class.getDeclaredMethod(name, parameterTypes);
         method.setAccessible(true);
         return method.invoke(game, args);

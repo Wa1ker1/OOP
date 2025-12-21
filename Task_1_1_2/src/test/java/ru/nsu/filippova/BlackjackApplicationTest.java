@@ -1,14 +1,15 @@
 package ru.nsu.filippova;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 class BlackjackApplicationTest {
 
@@ -16,7 +17,8 @@ class BlackjackApplicationTest {
     void mainCompletesSingleRoundWithProvidedInput() {
         InputStream originalIn = System.in;
         PrintStream originalOut = System.out;
-        ByteArrayInputStream fakeInput = new ByteArrayInputStream("0\n0\n".getBytes(StandardCharsets.UTF_8));
+        ByteArrayInputStream fakeInput = new ByteArrayInputStream(
+                "0\n0\n".getBytes(StandardCharsets.UTF_8));
         ByteArrayOutputStream sink = new ByteArrayOutputStream();
         System.setIn(fakeInput);
         System.setOut(new PrintStream(sink, true));
