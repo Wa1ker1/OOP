@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.filippova","l":"Main"},{"p":"ru.nsu.filippova","l":"NonPrimeFinder"},{"p":"ru.nsu.filippova","l":"ParallelStreamFinder"},{"p":"ru.nsu.filippova","l":"PrimeUtils"},{"p":"ru.nsu.filippova","l":"SequentialFinder"},{"p":"ru.nsu.filippova","l":"ThreadFinder"}];updateSearchResults();
