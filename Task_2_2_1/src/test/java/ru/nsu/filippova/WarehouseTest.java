@@ -9,6 +9,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import ru.nsu.filippova.model.Order;
+import ru.nsu.filippova.model.OrderState;
+import ru.nsu.filippova.simulation.Warehouse;
 
 class WarehouseTest {
     @Test

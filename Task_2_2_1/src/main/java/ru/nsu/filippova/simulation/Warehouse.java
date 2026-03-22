@@ -1,8 +1,10 @@
-package ru.nsu.filippova;
+package ru.nsu.filippova.simulation;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import ru.nsu.filippova.model.Order;
+import ru.nsu.filippova.model.OrderState;
 
 /**
  * Склад готовой продукции с фиксированной вместимостью.

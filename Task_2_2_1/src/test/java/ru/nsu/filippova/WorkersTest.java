@@ -6,6 +6,12 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import ru.nsu.filippova.model.Order;
+import ru.nsu.filippova.model.OrderState;
+import ru.nsu.filippova.simulation.OrderQueue;
+import ru.nsu.filippova.simulation.Warehouse;
+import ru.nsu.filippova.worker.BakerWorker;
+import ru.nsu.filippova.worker.CourierWorker;
 
 class WorkersTest {
     @Test

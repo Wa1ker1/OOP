@@ -1,4 +1,4 @@
-package ru.nsu.filippova;
+package ru.nsu.filippova.model;
 
 /**
  * Состояния жизненного цикла заказа в симуляции пиццерии.

@@ -1,4 +1,4 @@
-package ru.nsu.filippova;
+package ru.nsu.filippova.config;
 
 import java.util.List;
 

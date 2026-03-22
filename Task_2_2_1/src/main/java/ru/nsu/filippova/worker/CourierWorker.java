@@ -1,6 +1,9 @@
-package ru.nsu.filippova;
+package ru.nsu.filippova.worker;
 
 import java.util.List;
+import ru.nsu.filippova.model.Order;
+import ru.nsu.filippova.model.OrderState;
+import ru.nsu.filippova.simulation.Warehouse;
 
 /**
  * Поток курьера.

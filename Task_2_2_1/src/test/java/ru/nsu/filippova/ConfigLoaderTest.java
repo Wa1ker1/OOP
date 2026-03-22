@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
+import ru.nsu.filippova.config.ConfigLoader;
+import ru.nsu.filippova.config.PizzeriaConfig;
 
 class ConfigLoaderTest {
     @Test

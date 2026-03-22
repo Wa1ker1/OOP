@@ -1,6 +1,8 @@
-package ru.nsu.filippova;
+package ru.nsu.filippova.simulation;
 
 import java.util.ArrayDeque;
+import ru.nsu.filippova.model.Order;
+import ru.nsu.filippova.model.OrderState;
 
 /**
  * Потокобезопасная ручная очередь заказов.

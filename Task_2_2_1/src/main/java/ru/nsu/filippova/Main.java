@@ -1,6 +1,9 @@
 package ru.nsu.filippova;
 
 import java.io.IOException;
+import ru.nsu.filippova.config.ConfigLoader;
+import ru.nsu.filippova.config.PizzeriaConfig;
+import ru.nsu.filippova.simulation.PizzaSimulation;
 
 /**
  * Точка входа в приложение.
@@ -14,12 +17,19 @@ public class Main {
      * Точка входа.
      *
      * @param args аргументы командной строки; первым аргументом может быть путь к JSON-конфигу
-     * @throws IOException если не удалось прочитать конфиг
-     * @throws InterruptedException если один из потоков симуляции был прерван
      */
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) {
         String configPath = args.length > 0 ? args[0] : "config.json";
-        PizzeriaConfig config = ConfigLoader.load(configPath);
-        new PizzaSimulation(config).run();
+        try {
+            PizzeriaConfig config = ConfigLoader.load(configPath);
+            new PizzaSimulation(config).run();
+        } catch (IOException e) {
+            System.err.println("Failed to load config: " + configPath);
+            System.err.println(e.getMessage());
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Pizza simulation was interrupted.");
+            System.err.println(e.getMessage());
+        }
     }
 }

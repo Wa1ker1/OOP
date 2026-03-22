@@ -9,6 +9,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import ru.nsu.filippova.model.Order;
+import ru.nsu.filippova.model.OrderState;
+import ru.nsu.filippova.simulation.OrderQueue;
 
 class OrderQueueTest {
     @Test

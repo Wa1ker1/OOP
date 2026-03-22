@@ -1,8 +1,10 @@
-package ru.nsu.filippova;
+package ru.nsu.filippova.simulation;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
+import ru.nsu.filippova.config.PizzeriaConfig;
+import ru.nsu.filippova.worker.BakerWorker;
+import ru.nsu.filippova.worker.CourierWorker;
 
 /**
  * Оркестратор симуляции пиццерии.
@@ -45,7 +47,7 @@ public class PizzaSimulation {
             baker.start();
         }
 
-        Thread orderGenerator = new Thread(new OrderGenerator(), "OrderGenerator");
+        Thread orderGenerator = new Thread(new OrderGenerator(config, orderQueue), "OrderGenerator");
         orderGenerator.start();
 
         orderGenerator.join();
@@ -84,49 +86,4 @@ public class PizzaSimulation {
         }
         return result;
     }
-
-    /**
-     * Генератор поступления заказов.
-     *
-     * <p>
-     * Заказы создаются с заданным интервалом, пока не истечет длительность смены
-     * и пока не исчерпана общая квота (totalOrders, если она задана).
-     */
-    private class OrderGenerator implements Runnable {
-        private final AtomicInteger orderId = new AtomicInteger(1);
-
-        @Override
-        public void run() {
-            long endOfWorkingDay = System.currentTimeMillis() + config.getWorkDurationMs();
-            while (true) {
-                if (config.getTotalOrders() > 0 && orderId.get() > config.getTotalOrders()) {
-                    break;
-                }
-                if (System.currentTimeMillis() > endOfWorkingDay) {
-                    break;
-                }
-
-                Order order = new Order(orderId.getAndIncrement());
-                order.setState(OrderState.RECEIVED);
-                if (!orderQueue.offer(order)) {
-                    return;
-                }
-
-                sleepFor(config.getOrderIntervalMs());
-            }
-            orderQueue.close();
-        }
-
-        private void sleepFor(long interval) {
-            if (interval <= 0) {
-                return;
-            }
-            try {
-                Thread.sleep(interval);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        }
-    }
 }
-
