@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.filippova"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.filippova"},{"l":"ru.nsu.filippova.config"},{"l":"ru.nsu.filippova.model"},{"l":"ru.nsu.filippova.simulation"},{"l":"ru.nsu.filippova.worker"}];updateSearchResults();
