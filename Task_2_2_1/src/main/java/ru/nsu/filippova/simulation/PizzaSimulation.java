@@ -47,7 +47,8 @@ public class PizzaSimulation {
             baker.start();
         }
 
-        Thread orderGenerator = new Thread(new OrderGenerator(config, orderQueue), "OrderGenerator");
+        Thread orderGenerator = new Thread(new OrderGenerator(config, orderQueue),
+                "OrderGenerator");
         orderGenerator.start();
 
         orderGenerator.join();
