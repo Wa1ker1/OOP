@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.filippova"},{"l":"ru.nsu.filippova.controller"},{"l":"ru.nsu.filippova.model"}];updateSearchResults();
