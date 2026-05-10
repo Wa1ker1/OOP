@@ -1,0 +1,60 @@
+.screen {
+    -fx-background-color: #172126;
+    -fx-font-family: "System";
+}
+
+.title {
+    -fx-font-size: 44px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #f3f6f7;
+}
+
+.settings-panel {
+    -fx-background-color: #223138;
+    -fx-background-radius: 8px;
+    -fx-border-color: #41545d;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1px;
+}
+
+.settings-panel .label,
+.settings-panel .radio-button {
+    -fx-text-fill: #edf4f6;
+    -fx-font-size: 15px;
+}
+
+.primary-button {
+    -fx-background-color: #43a866;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+}
+
+.error-label {
+    -fx-text-fill: #ff8585;
+}
+
+.game-screen {
+    -fx-background-color: #111a1e;
+    -fx-font-family: "System";
+}
+
+.game-toolbar {
+    -fx-background-color: #223138;
+    -fx-border-color: #40525b;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.toolbar-label {
+    -fx-text-fill: #eff6f7;
+    -fx-font-size: 14px;
+}
+
+.canvas-holder {
+    -fx-background-color: #111a1e;
+}
+
+.button {
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
