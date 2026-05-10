@@ -52,7 +52,8 @@ jacocoTestReport {
         fileTree(dir: it, exclude: [
                 'ru/nsu/filippova/Main.class',
                 'ru/nsu/filippova/SnakeApplication.class',
-                'ru/nsu/filippova/controller/**'
+                'ru/nsu/filippova/controller/**',
+                'ru/nsu/filippova/view/**'
         ])
     }))
 }
