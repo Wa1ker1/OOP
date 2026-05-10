@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="680.0" prefWidth="920.0" spacing="18.0" styleClass="screen"
+      stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.nsu.filippova.controller.MenuController">
+    <padding>
+        <Insets bottom="36.0" left="36.0" right="36.0" top="36.0"/>
+    </padding>
+
+    <Label styleClass="title" text="Змейка"/>
+    <GridPane maxWidth="560.0" hgap="16.0" vgap="14.0" styleClass="settings-panel">
+        <padding>
+            <Insets bottom="24.0" left="28.0" right="28.0" top="24.0"/>
+        </padding>
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="190.0"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="260.0"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+        </rowConstraints>
+
+        <Label text="Цель игры" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <HBox spacing="14.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <RadioButton fx:id="infiniteModeButton" text="Пока не умру"/>
+            <RadioButton fx:id="targetModeButton" text="До длины"/>
+        </HBox>
+
+        <Label text="Целевая длина" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Spinner fx:id="targetLengthSpinner" editable="true" prefWidth="150.0" GridPane.columnIndex="1"
+                 GridPane.rowIndex="1"/>
+
+        <Label text="Сложность" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <ComboBox fx:id="difficultyComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <Label text="Карта" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <ComboBox fx:id="mapComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+        <Label text="Вражеские змейки" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <Spinner fx:id="enemyCountSpinner" editable="true" prefWidth="150.0" GridPane.columnIndex="1"
+                 GridPane.rowIndex="4"/>
+
+        <Label text="Еда на поле" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <Spinner fx:id="foodCountSpinner" editable="true" prefWidth="150.0" GridPane.columnIndex="1"
+                 GridPane.rowIndex="5"/>
+
+        <Button defaultButton="true" maxWidth="Infinity" onAction="#startGame" styleClass="primary-button"
+                text="Играть" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+    </GridPane>
+
+    <Label fx:id="errorLabel" styleClass="error-label"/>
+</VBox>
