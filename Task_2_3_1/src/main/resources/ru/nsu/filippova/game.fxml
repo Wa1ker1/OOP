@@ -10,7 +10,7 @@
 
 <BorderPane fx:id="root" prefHeight="720.0" prefWidth="980.0" styleClass="game-screen" stylesheets="@style.css"
             xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ru.nsu.filippova.controller.GameController">
+            fx:controller="ru.nsu.filippova.view.GameView">
     <top>
         <HBox alignment="CENTER_LEFT" spacing="14.0" styleClass="game-toolbar">
             <padding>

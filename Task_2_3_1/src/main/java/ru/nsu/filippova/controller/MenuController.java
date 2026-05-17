@@ -16,6 +16,7 @@ import ru.nsu.filippova.model.Difficulty;
 import ru.nsu.filippova.model.GameMode;
 import ru.nsu.filippova.model.GameSettings;
 import ru.nsu.filippova.model.MapType;
+import ru.nsu.filippova.view.GameView;
 
 
 /**
@@ -77,8 +78,8 @@ public class MenuController {
             FXMLLoader loader = new FXMLLoader(
                     Main.class.getResource("/ru/nsu/filippova/game.fxml"));
             Scene scene = new Scene(loader.load(), 980, 720);
-            GameController controller = loader.getController();
-            controller.startGame(settings);
+            GameView view = loader.getController();
+            view.startGame(settings);
 
             Stage stage = (Stage) targetLengthSpinner.getScene().getWindow();
             stage.setTitle("Змейка - игра");

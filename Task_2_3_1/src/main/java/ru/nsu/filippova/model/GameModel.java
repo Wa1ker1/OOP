@@ -22,6 +22,7 @@ public class GameModel {
     private final Set<Cell> obstacles;
     private final Set<Cell> food = new LinkedHashSet<>();
     private final List<Snake> snakes = new ArrayList<>();
+    private final List<Runnable> changeListeners = new ArrayList<>();
     private final Snake playerSnake;
 
     private GameStatus status = GameStatus.RUNNING;
@@ -97,6 +98,7 @@ public class GameModel {
             status = GameStatus.WON;
             message = "Победа: достигнута длина " + playerSnake.length();
         }
+        notifyChangeListeners();
     }
 
     /**
@@ -115,6 +117,7 @@ public class GameModel {
         if (status == GameStatus.RUNNING) {
             status = GameStatus.PAUSED;
             message = "Пауза";
+            notifyChangeListeners();
         }
     }
 
@@ -125,7 +128,17 @@ public class GameModel {
         if (status == GameStatus.PAUSED) {
             status = GameStatus.RUNNING;
             message = "";
+            notifyChangeListeners();
         }
+    }
+
+    /**
+     * Добавляет обработчик изменения модели.
+     *
+     * @param listener обработчик
+     */
+    public void addChangeListener(Runnable listener) {
+        changeListeners.add(listener);
     }
 
     /**
@@ -335,6 +348,13 @@ public class GameModel {
     private void lose() {
         status = GameStatus.LOST;
         message = "Игра окончена";
+        notifyChangeListeners();
+    }
+
+    private void notifyChangeListeners() {
+        for (Runnable listener : changeListeners) {
+            listener.run();
+        }
     }
 
     private void resetRobot(Snake robot) {
