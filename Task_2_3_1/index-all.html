@@ -52,6 +52,10 @@ loadScripts(document, 'script');</script>
 <a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a><span class="vertical-separator">|</span><a href="constant-values.html">Constant&nbsp;Field&nbsp;Values</a>
 <h2 class="title" id="I:A">A</h2>
 <dl class="index">
+<dt><a href="ru/nsu/filippova/model/GameModel.html#addChangeListener(java.lang.Runnable)" class="member-name-link">addChangeListener(Runnable)</a> - Method in class ru.nsu.filippova.model.<a href="ru/nsu/filippova/model/GameModel.html" title="class in ru.nsu.filippova.model">GameModel</a></dt>
+<dd>
+<div class="block">Добавляет обработчик изменения модели.</div>
+</dd>
 <dt><a href="ru/nsu/filippova/model/GameModel.html#allowedDirections(ru.nsu.filippova.model.Snake)" class="member-name-link">allowedDirections(Snake)</a> - Method in class ru.nsu.filippova.model.<a href="ru/nsu/filippova/model/GameModel.html" title="class in ru.nsu.filippova.model">GameModel</a></dt>
 <dd>
 <div class="block">Возвращает допустимые направления для змейки.</div>
@@ -164,10 +168,12 @@ loadScripts(document, 'script');</script>
 <dl class="index">
 <dt><a href="ru/nsu/filippova/controller/GameController.html" class="type-name-link" title="class in ru.nsu.filippova.controller">GameController</a> - Class in <a href="ru/nsu/filippova/controller/package-summary.html">ru.nsu.filippova.controller</a></dt>
 <dd>
-<div class="block">Контроллер игрового экрана.</div>
+<div class="block">Управляет игровой моделью.</div>
 </dd>
-<dt><a href="ru/nsu/filippova/controller/GameController.html#%3Cinit%3E()" class="member-name-link">GameController()</a> - Constructor for class ru.nsu.filippova.controller.<a href="ru/nsu/filippova/controller/GameController.html" title="class in ru.nsu.filippova.controller">GameController</a></dt>
-<dd>&nbsp;</dd>
+<dt><a href="ru/nsu/filippova/controller/GameController.html#%3Cinit%3E(ru.nsu.filippova.model.GameSettings)" class="member-name-link">GameController(GameSettings)</a> - Constructor for class ru.nsu.filippova.controller.<a href="ru/nsu/filippova/controller/GameController.html" title="class in ru.nsu.filippova.controller">GameController</a></dt>
+<dd>
+<div class="block">Создает контроллер партии.</div>
+</dd>
 <dt><a href="ru/nsu/filippova/model/GameMode.html" class="type-name-link" title="enum class in ru.nsu.filippova.model">GameMode</a> - Enum Class in <a href="ru/nsu/filippova/model/package-summary.html">ru.nsu.filippova.model</a></dt>
 <dd>
 <div class="block">Режим победы в игре.</div>
@@ -200,6 +206,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Текущее состояние партии.</div>
 </dd>
+<dt><a href="ru/nsu/filippova/view/GameView.html" class="type-name-link" title="class in ru.nsu.filippova.view">GameView</a> - Class in <a href="ru/nsu/filippova/view/package-summary.html">ru.nsu.filippova.view</a></dt>
+<dd>
+<div class="block">View игрового экрана.</div>
+</dd>
+<dt><a href="ru/nsu/filippova/view/GameView.html#%3Cinit%3E()" class="member-name-link">GameView()</a> - Constructor for class ru.nsu.filippova.view.<a href="ru/nsu/filippova/view/GameView.html" title="class in ru.nsu.filippova.view">GameView</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="ru/nsu/filippova/model/Snake.html#getBody()" class="member-name-link">getBody()</a> - Method in class ru.nsu.filippova.model.<a href="ru/nsu/filippova/model/Snake.html" title="class in ru.nsu.filippova.model">Snake</a></dt>
 <dd>
 <div class="block">Возвращает клетки тела.</div>
@@ -223,6 +235,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="ru/nsu/filippova/model/GameModel.html#getMessage()" class="member-name-link">getMessage()</a> - Method in class ru.nsu.filippova.model.<a href="ru/nsu/filippova/model/GameModel.html" title="class in ru.nsu.filippova.model">GameModel</a></dt>
 <dd>
 <div class="block">Возвращает сообщение для интерфейса.</div>
+</dd>
+<dt><a href="ru/nsu/filippova/controller/GameController.html#getModel()" class="member-name-link">getModel()</a> - Method in class ru.nsu.filippova.controller.<a href="ru/nsu/filippova/controller/GameController.html" title="class in ru.nsu.filippova.controller">GameController</a></dt>
+<dd>
+<div class="block">Возвращает модель текущей партии.</div>
 </dd>
 <dt><a href="ru/nsu/filippova/model/GameModel.html#getObstacles()" class="member-name-link">getObstacles()</a> - Method in class ru.nsu.filippova.model.<a href="ru/nsu/filippova/model/GameModel.html" title="class in ru.nsu.filippova.model">GameModel</a></dt>
 <dd>
@@ -424,6 +440,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Запоминает новое направление для следующего шага.</div>
 </dd>
+<dt><a href="ru/nsu/filippova/controller/GameController.html#setPlayerDirection(ru.nsu.filippova.model.Direction)" class="member-name-link">setPlayerDirection(Direction)</a> - Method in class ru.nsu.filippova.controller.<a href="ru/nsu/filippova/controller/GameController.html" title="class in ru.nsu.filippova.controller">GameController</a></dt>
+<dd>
+<div class="block">Меняет направление змейки игрока.</div>
+</dd>
 <dt><a href="ru/nsu/filippova/model/GameModel.html#setPlayerDirection(ru.nsu.filippova.model.Direction)" class="member-name-link">setPlayerDirection(Direction)</a> - Method in class ru.nsu.filippova.model.<a href="ru/nsu/filippova/model/GameModel.html" title="class in ru.nsu.filippova.model">GameModel</a></dt>
 <dd>
 <div class="block">Задает направление игрока.</div>
@@ -442,17 +462,25 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="ru/nsu/filippova/SnakeApplication.html#%3Cinit%3E()" class="member-name-link">SnakeApplication()</a> - Constructor for class ru.nsu.filippova.<a href="ru/nsu/filippova/SnakeApplication.html" title="class in ru.nsu.filippova">SnakeApplication</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="ru/nsu/filippova/controller/GameController.html#start()" class="member-name-link">start()</a> - Method in class ru.nsu.filippova.controller.<a href="ru/nsu/filippova/controller/GameController.html" title="class in ru.nsu.filippova.controller">GameController</a></dt>
+<dd>
+<div class="block">Запускает игровой таймер.</div>
+</dd>
 <dt><a href="ru/nsu/filippova/SnakeApplication.html#start(javafx.stage.Stage)" class="member-name-link">start(Stage)</a> - Method in class ru.nsu.filippova.<a href="ru/nsu/filippova/SnakeApplication.html" title="class in ru.nsu.filippova">SnakeApplication</a></dt>
 <dd>
 <div class="block">Открывает главное окно с меню.</div>
 </dd>
-<dt><a href="ru/nsu/filippova/controller/GameController.html#startGame(ru.nsu.filippova.model.GameSettings)" class="member-name-link">startGame(GameSettings)</a> - Method in class ru.nsu.filippova.controller.<a href="ru/nsu/filippova/controller/GameController.html" title="class in ru.nsu.filippova.controller">GameController</a></dt>
+<dt><a href="ru/nsu/filippova/view/GameView.html#startGame(ru.nsu.filippova.model.GameSettings)" class="member-name-link">startGame(GameSettings)</a> - Method in class ru.nsu.filippova.view.<a href="ru/nsu/filippova/view/GameView.html" title="class in ru.nsu.filippova.view">GameView</a></dt>
 <dd>
 <div class="block">Создает новую партию с выбранными настройками.</div>
 </dd>
 <dt><a href="ru/nsu/filippova/model/RobotStrategy.html#STEADY" class="member-name-link">STEADY</a> - Enum constant in enum class ru.nsu.filippova.model.<a href="ru/nsu/filippova/model/RobotStrategy.html" title="enum class in ru.nsu.filippova.model">RobotStrategy</a></dt>
 <dd>
 <div class="block">Робот реже поворачивает, если путь вперед безопасен.</div>
+</dd>
+<dt><a href="ru/nsu/filippova/controller/GameController.html#stop()" class="member-name-link">stop()</a> - Method in class ru.nsu.filippova.controller.<a href="ru/nsu/filippova/controller/GameController.html" title="class in ru.nsu.filippova.controller">GameController</a></dt>
+<dd>
+<div class="block">Останавливает игровой таймер.</div>
 </dd>
 </dl>
 <h2 class="title" id="I:T">T</h2>
@@ -472,6 +500,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="ru/nsu/filippova/model/Difficulty.html#tickNanos()" class="member-name-link">tickNanos()</a> - Method in enum class ru.nsu.filippova.model.<a href="ru/nsu/filippova/model/Difficulty.html" title="enum class in ru.nsu.filippova.model">Difficulty</a></dt>
 <dd>
 <div class="block">Возвращает задержку одного игрового шага в наносекундах.</div>
+</dd>
+<dt><a href="ru/nsu/filippova/controller/GameController.html#togglePause()" class="member-name-link">togglePause()</a> - Method in class ru.nsu.filippova.controller.<a href="ru/nsu/filippova/controller/GameController.html" title="class in ru.nsu.filippova.controller">GameController</a></dt>
+<dd>
+<div class="block">Переключает паузу.</div>
 </dd>
 <dt><a href="ru/nsu/filippova/model/Cell.html#toString()" class="member-name-link">toString()</a> - Method in record class ru.nsu.filippova.model.<a href="ru/nsu/filippova/model/Cell.html" title="class in ru.nsu.filippova.model">Cell</a></dt>
 <dd>
