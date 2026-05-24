@@ -1,7 +1,5 @@
 package ru.nsu.filippova;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 /**
  * Параллельная реализация поиска не простого числа с использованием
  * нескольких экземпляров {@link Thread}.
@@ -41,13 +39,13 @@ public class ThreadFinder implements NonPrimeFinder {
 
         int workersCount = Math.min(threadCount, numbers.length);
         int chunk = (numbers.length + workersCount - 1) / workersCount;
-        AtomicBoolean found = new AtomicBoolean(false);
+        SearchResult result = new SearchResult();
         Worker[] workers = new Worker[workersCount];
 
         for (int i = 0; i < workersCount; i++) {
             int start = i * chunk;
             int end = Math.min(start + chunk, numbers.length);
-            workers[i] = new Worker(numbers, start, end, found);
+            workers[i] = new Worker(numbers, start, end, result);
             workers[i].start();
         }
 
@@ -56,11 +54,27 @@ public class ThreadFinder implements NonPrimeFinder {
                 worker.join();
             } catch (InterruptedException exception) {
                 Thread.currentThread().interrupt();
-                return found.get();
+                return result.isFound();
             }
         }
 
-        return found.get();
+        return result.isFound();
+    }
+
+    /**
+     * Общий результат поиска. Поле volatile обеспечивает видимость изменений
+     * между потоками без применения atomic-типов.
+     */
+    private static class SearchResult {
+        private volatile boolean found;
+
+        private boolean isFound() {
+            return found;
+        }
+
+        private void markFound() {
+            found = true;
+        }
     }
 
     /**
@@ -70,7 +84,7 @@ public class ThreadFinder implements NonPrimeFinder {
         private final int[] numbers;
         private final int start;
         private final int end;
-        private final AtomicBoolean found;
+        private final SearchResult result;
 
         /**
          * Создает рабочий поток для проверки части массива.
@@ -78,13 +92,13 @@ public class ThreadFinder implements NonPrimeFinder {
          * @param numbers исходный массив чисел
          * @param start индекс начала диапазона включительно
          * @param end индекс конца диапазона не включительно
-         * @param found общий флаг обнаружения не простого числа
+         * @param result общий результат поиска
          */
-        private Worker(int[] numbers, int start, int end, AtomicBoolean found) {
+        private Worker(int[] numbers, int start, int end, SearchResult result) {
             this.numbers = numbers;
             this.start = start;
             this.end = end;
-            this.found = found;
+            this.result = result;
         }
 
         /**
@@ -93,9 +107,9 @@ public class ThreadFinder implements NonPrimeFinder {
          */
         @Override
         public void run() {
-            for (int i = start; i < end && !found.get(); i++) {
+            for (int i = start; i < end && !result.isFound(); i++) {
                 if (!PrimeUtils.isPrime(numbers[i])) {
-                    found.set(true);
+                    result.markFound();
                     return;
                 }
             }
